@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "Long links are long"
+date:   2019-08-28 15:31:30 +0000
+---
+Some pages look by default beautiful in mobile (in Chrome at least) without having to do anything special. It seems github pages work nicely on mobile by default except... when you have a long link :(
+In that case, the width of the page becomes super long and the viewport is not recognized as a mobile one. A shame...
+
+This is an example link that triggered this behaviour:
+https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_Pok%C3%A9mon_names
+
+And some lore ipsum to complete, because the post is not long enough :)
+
+Pokem ipsum dolor sit amet Ariados Charmander Ho-oh Bellossom Hippopotas Surskit. Rising Badge Pupitar Farfetch'd Victini Latias Klang Larvesta. Thunder Badge Growlithe Magneton Lumineon Skiploom Mewtwo Officer Jenny. Ash Glalie Great Ball Numel Zweilous Nidoran Carnivine. Pokemon The Movie 2000 Pineco Mesprit Granbull Nidorino Mightyena Metagross. 
+
+Glitch City Gold Vulpix Calcium Jigglypuff Banette Slugma. Poison Sting Vileplume to train them is my cause Blastoise Budew grumpy old man who needs coffee Rising Badge. Mewtwo Strikes Back Suicune Nurse Joy Shedinja Cryogonal Monferno Reshiram. Velit esse cillum dolore eu fugiat nulla pariatur Shedinja Zapdos Watchog Marsh Badge Zigzagoon Cyndaquil. Johto Hydro Pump Jigglypuff Combusken Skiploom Rare Candy Shelmet. 
+
+Gotta catch 'em all Skiploom Vileplume Gible Growlithe Water Koffing. Ut aliquip ex ea commodo consequat Ash's mother Phanpy Uxie Castform Leech Seed Steel. Meowth, that's right Staryu I wanna be the very best Excadrill Elgyem Clefairy Baltoy. Body Slam Sawsbuck Dark Axew grumpy old man who needs coffee lorem ipsum dolor sit amet Jumpluff. Hydro Pump Braviary you teach me and I'll teach you Vullaby Deino Simisear Pikachu. 
+
+Silver Ferroseed Ursaring Porygon2 Druddigon Pansage sed do eiusmod tempor. Yellow Magneton Magikarp Gold Frillish Vibrava Cresselia. Pokemon 4Ever Drifloon Charizard Zigzagoon Budew Blaziken Cerulean City. Strength Miltank Snivy Earthquake Amoonguss Silph Scope Timburr. Splash Rock Technical Machine Charizard to extend our reach to the stars above Shiftry Ursaring. 
+
+Gold Bisharp Psychic Rotom Electrike Emboar Wynaut. Earth Badge Gothita et dolore magna aliqua sed do eiusmod tempor Meowth Darmanitan Phanpy. Vermilion City Unfezant Wing Attack fishing rod Teddiursa in voluptate velit esse cillum dolore eu fugiat nulla pariatur Giratina. Ut aliquip ex ea commodo consequat Wooper Lickitung Smeargle Deoxys Mesprit Luxray. Blue Corphish Slowpoke Panpour the enemy Pokemon fainted Drilbur Ambipom. 
