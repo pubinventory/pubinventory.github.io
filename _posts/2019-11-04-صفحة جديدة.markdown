@@ -2,8 +2,11 @@
 layout: post
 title:  "Arabic content"
 date:   2019-11-04 13:31:30 +0000
-categories: [non-ASCII]
+categories: [pixelart]
 ---
+Pikacube now has a new friend, Cubasaur!
+
+<img src="{{site.baseurl}}/assets/img/cubasaur.jpg">
 This is a very creative writeup to test non-ASCII exclusion URLs.
 
 This is a very creative writeup to test non-ASCII exclusion URLs.
