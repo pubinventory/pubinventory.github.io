@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Arabic content"
-date:   2018-10-03 13:31:30 +0000
+date:   2019-11-04 13:31:30 +0000
 categories: [non-ASCII]
 ---
 This is a very creative writeup to test non-ASCII exclusion URLs.
