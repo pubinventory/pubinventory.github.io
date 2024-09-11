@@ -1,7 +1,9 @@
+<iframe width='600' hight='800' id='gs-frame'>
+
 <script src="https://sdks.gamesnacks.com/partner-v1.js"></script>
 <script>
   // Create Snacks Game Center.
-  const gamesnacks = window.createGameSnacks('iframe-id', 'gamesnacks');
+  const gamesnacks = window.createGameSnacks('gs-frame', 'gamesnacks');
 
   // Register API callbacks.
   gamesnacks.game.onReady(...);
