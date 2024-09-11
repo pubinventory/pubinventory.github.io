@@ -1,5 +1,5 @@
 <body>
-<iframe width='600' height='800' id='gs-frame'></iframe>
+<iframe  width="100%" height="800" style="border:none;" id='gs-frame'></iframe>
 
 <script src="https://sdks.gamesnacks.com/partner-v1.js"></script>
 <script>
@@ -7,8 +7,8 @@
   const gamesnacks = window.createGameSnacks('gs-frame', 'gamesnacks');
 
   // Register API callbacks.
-  gamesnacks.game.onReady(...);
-  gamesnacks.audio.update(...);
+ // gamesnacks.game.onReady(...);
+ // gamesnacks.audio.update(...);
 
   // Initialise GameSnacks.
   await gamesnacks.init();
