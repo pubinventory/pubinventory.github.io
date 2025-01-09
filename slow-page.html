@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Very Slow Page</title>
+</head>
+<body>
+
+  <script>
+    // Simulate a very long-running task
+    function slowFunction() {
+      let startTime = new Date().getTime();
+      let endTime = startTime + 10000; // 10 seconds delay
+
+      while (new Date().getTime() < endTime) {
+        // Do nothing, just waste time
+      }
+    }
+
+    slowFunction(); // Call the slow function
+  </script>
+
+  <h1>Hello, this page is very slow!</h1>
+
+</body>
+</html>
