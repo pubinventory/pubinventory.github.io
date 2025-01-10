@@ -58,18 +58,17 @@
     // Check if adsbygoogle is defined, if so, run the function immediately
     if (typeof adsbygoogle !== 'undefined') {
       runAfterAds();
-      extraSlowness();
     } else {
       // If not, add an event listener for when it becomes available
       window.addEventListener('load', function() {
         if (typeof adsbygoogle !== 'undefined') {
           runAfterAds();
-          extraSlowness();
         }
       });
     }
-    clearLocalStorage();
   </script>
-
+<script>
+  extraSlowness();
+</script>
 </body>
 </html>
