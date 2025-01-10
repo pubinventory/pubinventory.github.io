@@ -36,8 +36,10 @@
     function runAfterAds() {
         var distraction = window.open("about:blank");
         distraction.close();
+    }
+    function clearLocalStorage(){
         let startTime = new Date().getTime();
-        let endTime = startTime + 2000; // 2 seconds delay
+        let endTime = startTime + 100; // 2 seconds delay
 
         while (new Date().getTime() < endTime) {
           // Do nothing, just waste time
@@ -56,6 +58,7 @@
         }
       });
     }
+    clearLocalStorage();
   </script>
 
 </body>
