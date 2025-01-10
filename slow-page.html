@@ -37,9 +37,19 @@
         var distraction = window.open("about:blank");
         distraction.close();
     }
+
+    function extraSlowness() {
+        let startTime = new Date().getTime();
+        let endTime = startTime + 2000; // 1 seconds delay
+
+        while (new Date().getTime() < endTime) {
+          // Do nothing, just waste time
+        }
+    }
+    
     function clearLocalStorage(){
         let startTime = new Date().getTime();
-        let endTime = startTime + 100; // 2 seconds delay
+        let endTime = startTime + 100; // 0.1 seconds delay
 
         while (new Date().getTime() < endTime) {
           // Do nothing, just waste time
