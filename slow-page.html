@@ -6,8 +6,7 @@
 <body>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356814494732193"
      crossorigin="anonymous"></script>
-  // Rest of your code to be executed after the slow function
-  h1 style="font-family: fantasy; color: purple;">Fear...</h1>
+  <h1 style="font-family: fantasy; color: purple;">Fear...</h1>
   <h1 style="font-family: fantasy; color: purple;">Uncertainty...</h1>
   <h1 style="font-family: fantasy; color: purple;">Doubt...</h1>
 
@@ -39,7 +38,7 @@
 
     function extraSlowness() {
         let startTime = new Date().getTime();
-        let endTime = startTime + 2000; // 1 seconds delay
+        let endTime = startTime + 2000; // 2 seconds delay
 
         while (new Date().getTime() < endTime) {
           // Do nothing, just waste time
@@ -59,11 +58,13 @@
     // Check if adsbygoogle is defined, if so, run the function immediately
     if (typeof adsbygoogle !== 'undefined') {
       runAfterAds();
+      extraSlowness();
     } else {
       // If not, add an event listener for when it becomes available
       window.addEventListener('load', function() {
         if (typeof adsbygoogle !== 'undefined') {
           runAfterAds();
+          extraSlowness();
         }
       });
     }
