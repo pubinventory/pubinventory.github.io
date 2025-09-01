@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Standard viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wide Scrollable Page with Anchor Ad</title>
+
+    <!-- Google AdSense Auto Ads Script -->
+    <!-- Replace ca-pub-XXXXXXXXXXXXXXXX with your real AdSense Publisher ID -->
+    <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356814494732193"
+        crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            /* Force the body to be much wider than typical screens */
+            min-width: 2500px;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #e0f7fa;
+            /* Light blue background */
+        }
+
+        .container {
+            width: 2400px;
+            /* Content container width */
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            /* White background for content */
+            border: 1px solid #b0bec5;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #00796b;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .wide-element {
+            width: 100%;
+            height: 200px;
+            background-color: #ffe0b2;
+            /* Light orange */
+            border: 1px dashed #ff9800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Extra Wide Page Content</h1>
+        <p>This page is designed to be wider than the browser window, requiring horizontal scrolling to see all content.
+        </p>
+
+        <div class="wide-element">
+            <p style="font-size: 24px; text-align: center;">This is a full-width section within the wide container.</p>
+        </div>
+
+        <p>Scroll right to see more content &rarr;</p>
+
+        <div style="float: right; width: 500px; background: #f1f8e9; padding: 10px; border: 1px solid #c5e1a5;">
+            <h3>Far Right Content</h3>
+            <p>This content is on the far right side of the wide page.</p>
+        </div>
+
+        <p style="padding-top: 250px;">Some more content down here to make the page scrollable vertically too...</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+
+    </div>
+
+    <!-- The AdSense Anchor Ad will be automatically placed at the top or bottom of the viewport by the Auto Ads script -->
+</body>
+
+</html>
