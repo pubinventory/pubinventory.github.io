@@ -10,6 +10,18 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356814494732193"
      crossorigin="anonymous"></script>
+<script>
+      window.adsbygoogle = window.adsbygoogle || [];
+      const adBreak =  adConfig = function(o) {adsbygoogle.push(o);}
+      console.log('calling ad break for preroll');
+      adBreak({
+        type: 'preroll',
+        name: 'preroll-ad',
+        adBreakDone: (info) => {
+          console.log(`adBreakDone called for preroll\n${JSON.stringify(info, null, 2)}`);
+        },
+      });
+</script>
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-format="autorelaxed"
