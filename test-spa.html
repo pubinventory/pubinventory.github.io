@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JS SPA Mimic</title>
+    <!-- Importing Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base styles for our views */
+        .page-view { 
+            display: none; 
+        }
+        
+        /* When a view is active, show it with a smooth fade and slide-up animation */
+        .page-view.active { 
+            display: block; 
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen antialiased">
+    
+    <!-- Top Navigation Bar -->
+    <nav class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex space-x-8">
+                    <!-- Navigation Links with Hash fragments -->
+                    <a href="#home" class="nav-link inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-500 hover:text-slate-800 hover:border-slate-300 transition-colors duration-200">
+                        Home
+                    </a>
+                    <a href="#dashboard" class="nav-link inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-500 hover:text-slate-800 hover:border-slate-300 transition-colors duration-200">
+                        Dashboard
+                    </a>
+                    <a href="#settings" class="nav-link inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-slate-500 hover:text-slate-800 hover:border-slate-300 transition-colors duration-200">
+                        Settings
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- View 1: Home -->
+        <div id="home" class="page-view active bg-white rounded-2xl shadow-sm border border-slate-100 p-8 sm:p-10">
+            <h1 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Welcome Home</h1>
+            <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                This is the home view. Notice how clicking the navigation links changes the URL to <code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm text-pink-600 font-mono">#home</code> or <code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm text-pink-600 font-mono">#dashboard</code>, but the page never reloads.
+            </p>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                <p class="text-sm text-blue-700">
+                    <strong>Tip:</strong> Try using your browser's back and forward buttons! The JavaScript listens to the URL changes and updates the view automatically.
+                </p>
+            </div>
+        </div>
+
+        <!-- View 2: Dashboard -->
+        <div id="dashboard" class="page-view bg-white rounded-2xl shadow-sm border border-slate-100 p-8 sm:p-10">
+            <h1 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Your Dashboard</h1>
+            <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                Here is your dashboard view. In a real SPA (like React, Vue, or Angular), we would dynamically fetch data from an API when this specific section becomes active.
+            </p>
+            
+            <!-- Mock Dashboard Widgets -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <p class="text-sm text-slate-500 font-medium uppercase tracking-wider mb-1">Total Users</p>
+                    <p class="text-3xl font-bold text-slate-900">1,234</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <p class="text-sm text-slate-500 font-medium uppercase tracking-wider mb-1">Revenue</p>
+                    <p class="text-3xl font-bold text-green-600">$8,942</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <p class="text-sm text-slate-500 font-medium uppercase tracking-wider mb-1">Active Sessions</p>
+                    <p class="text-3xl font-bold text-blue-600">342</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- View 3: Settings -->
+        <div id="settings" class="page-view bg-white rounded-2xl shadow-sm border border-slate-100 p-8 sm:p-10">
+            <h1 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Settings</h1>
+            <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                Adjust your preferences here. Notice how the navigation bar at the top highlights the currently active tab to keep you oriented.
+            </p>
+            
+            <!-- Mock Settings Form -->
+            <form class="space-y-6 max-w-md" onsubmit="event.preventDefault();">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Display Name</label>
+                    <input type="text" value="Jane Doe" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" readonly>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="notifications" checked class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300 rounded">
+                    <label for="notifications" class="ml-2 block text-sm text-slate-700">
+                        Enable email notifications
+                    </label>
+                </div>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                    Save Changes
+                </button>
+            </form>
+        </div>
+
+    </main>
+
+    <script>
+        /**
+         * The core router function. 
+         * It reads the URL, hides everything, and shows the requested part.
+         */
+        function navigate() {
+            // 1. Get the hash from the URL (e.g., "#dashboard"). Fallback to '#home'
+            const hash = window.location.hash || '#home';
+            
+            // Remove the '#' to get just the ID name (e.g., "dashboard")
+            const path = hash.substring(1);
+
+            // 2. Hide all page views by removing the 'active' class
+            document.querySelectorAll('.page-view').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // 3. Update the navigation bar styles to highlight the active link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === hash) {
+                    // Active link styles (blue border, dark text)
+                    link.classList.add('border-blue-600', 'text-slate-900');
+                    link.classList.remove('border-transparent', 'text-slate-500');
+                } else {
+                    // Inactive link styles
+                    link.classList.remove('border-blue-600', 'text-slate-900');
+                    link.classList.add('border-transparent', 'text-slate-500');
+                }
+            });
+
+            // 4. Find the correct view and show it by adding the 'active' class
+            const targetPage = document.getElementById(path);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            } else {
+                // Fallback route: If someone types a bad URL like #xyz, send them home
+                document.getElementById('home').classList.add('active');
+            }
+        }
+
+        // Listen for standard link clicks and back/forward browser navigation
+        window.addEventListener('hashchange', navigate);
+
+        // Run the routing logic immediately when the page first loads
+        window.addEventListener('DOMContentLoaded', navigate);
+    </script>
+</body>
+</html>
