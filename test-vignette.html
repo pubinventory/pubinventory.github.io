@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdSense Vignette Ad Control Test</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google AdSense Auto Ads Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356814494732193"
+            crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-2xl w-full bg-white rounded-xl shadow-lg p-8">
+        
+        <header class="mb-8 border-b pb-6">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Vignette Ad Testing</h1>
+            <p class="text-gray-600">
+                This page is configured with Google AdSense Auto Ads. Use the links below to test the behavior of vignette ads. 
+                Vignette ads are full-screen ads that appear between page loads.
+            </p>
+        </header>
+
+        <div class="space-y-6">
+            
+            <!-- Link 1: Standard Link -->
+            <div class="p-6 border-2 border-gray-200 rounded-lg hover:border-blue-400 transition-colors">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">1. Standard Link</h2>
+                <p class="text-sm text-gray-500 mb-4">
+                    This is a normal hyperlink. If Auto Ads and Vignette ads are enabled on your account, clicking this link <strong>may</strong> trigger a vignette ad before navigating.
+                </p>
+                <a href="https://support.google.com/adsense/answer/16531962" 
+                   class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300">
+                    Test Standard Link
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
+            <!-- Link 2: Vignette Disabled Link -->
+            <div class="p-6 border-2 border-gray-200 rounded-lg hover:border-emerald-400 transition-colors">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">2. Vignette Disabled Link</h2>
+                <p class="text-sm text-gray-500 mb-4">
+                    This link includes the <code>data-google-vignette="false"</code> attribute. Clicking this link should <strong>never</strong> trigger a vignette ad.
+                </p>
+                <!-- Notice the data-google-vignette="false" attribute added here -->
+                <a href="https://support.google.com/adsense/answer/16531962" 
+                   data-google-vignette="false"
+                   class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 focus:ring-4 focus:ring-emerald-300">
+                    Test Disabled Vignette Link
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
+        </div>
+
+        <footer class="mt-8 pt-6 border-t text-sm text-gray-400 text-center">
+            <p>Note: Vignette ads are capped per user, so they may not appear on every click even on standard links.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
