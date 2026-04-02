@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdSense Vignette Ad Control Test</title>
-    
+
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google AdSense Auto Ads Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356814494732193"
-            crossorigin="anonymous"></script>
+     crossorigin="anonymous"></script>
 
     <style>
         body {
@@ -21,7 +21,7 @@
 <body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
 
     <div class="max-w-2xl w-full bg-white rounded-xl shadow-lg p-8">
-        
+
         <header class="mb-8 border-b pb-6">
             <h1 class="text-3xl font-bold text-gray-900 mb-2">Vignette Ad Testing</h1>
             <p class="text-gray-600">
@@ -31,7 +31,7 @@
         </header>
 
         <div class="space-y-6">
-            
+
             <!-- Link 1: Standard Link -->
             <div class="p-6 border-2 border-gray-200 rounded-lg hover:border-blue-400 transition-colors">
                 <h2 class="text-xl font-semibold text-gray-800 mb-2">1. Standard Link</h2>
@@ -56,6 +56,20 @@
                    data-google-vignette="false"
                    class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 focus:ring-4 focus:ring-emerald-300">
                     Test Disabled Vignette Link
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
+            <!-- Link 3: Parent Container Disabled (Testing AdSense Behavior) -->
+            <div class="p-6 border-2 border-gray-200 rounded-lg hover:border-purple-400 transition-colors" data-google-vignette="false">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">3. Vignette Disabled on Parent Div</h2>
+                <p class="text-sm text-gray-500 mb-4">
+                    This entire block (a parent <code>&lt;div&gt;</code>) has the <code>data-google-vignette="false"</code> attribute, but the link inside does not. Because AdSense ignores parent attributes, clicking this link <strong>may still trigger</strong> a vignette ad.
+                </p>
+                <!-- Notice the link itself does NOT have the data-google-vignette attribute -->
+                <a href="https://pubinventory.github.io/" 
+                   class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-purple-600 rounded-lg hover:bg-purple-700 focus:ring-4 focus:ring-purple-300">
+                    Test Parent Disabled Link
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>
             </div>
