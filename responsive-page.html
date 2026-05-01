@@ -1,0 +1,121 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>My responsive website</title>
+      <style>
+          body {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+              line-height: 1.6;
+              margin: 0;
+              padding: 0;
+              background-color: #f0f2f5;
+              color: #333;
+          }
+          header {
+              background-color: #4285f4;
+              color: white;
+              text-align: center;
+              padding: 1rem;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          }
+          .container {
+              max-width: 800px;
+              margin: 0 auto;
+              padding: 15px;
+              box-sizing: border-box;
+          }
+          .card {
+              background: white;
+              padding: 20px;
+              border-radius: 8px;
+              margin-bottom: 20px;
+              box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+          }
+          /* Responsive Ad Container styling */
+          .ad-slot {
+              background: #e9ecef;
+              border: 2px dashed #adb5bd;
+              margin: 20px auto;
+              padding: 10px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              min-height: 100px; /* Minimum visual height for placeholders */
+              position: relative;
+              clear: both;
+          }
+          .ad-slot::before {
+              content: "AD PLACEMENT";
+              position: absolute;
+              top: 5px;
+              left: 5px;
+              font-size: 0.7rem;
+              font-weight: bold;
+              color: #6c757d;
+              background: rgba(255,255,255,0.7);
+              padding: 2px 4px;
+              border-radius: 3px;
+          }
+          h1, h2 {
+              margin-top: 0;
+          }
+          p {
+              color: #555;
+          }
+      </style>
+  </head>
+  <body>
+  
+      <header>
+          <h1>My Responsive Test Page</h1>
+      </header>
+  
+      <div class="container">
+  
+          <div class="card">
+              <h2>Welcome</h2>
+              <p>This is a mobile-responsive test harness for ads. You can insert your defined slot IDs into the placeholders below.</p>
+          </div>
+  
+          <!-- AD SLOT 1: Top of Page / In-Feed -->
+          <div class="ad-slot">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356814494732193"
+               crossorigin="anonymous"></script>
+          <!-- resp_manual -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-5356814494732193"
+               data-ad-slot="9090604411"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+          </div>
+  
+          <div class="card">
+              <h2>Sample Article Body</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor interdum justo, eget varius ligula rhoncus at. Donec ac libero sit amet libero facilisis iaculis.</p>
+              <p>Nulla facilisi. Proin nec bibendum nisi. Sed non purus non purus interdum accumsan sit amet nec purus. Fusce id nisi sit amet leo tincidunt efficitur.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor interdum justo, eget varius ligula rhoncus at. Donec ac libero sit amet libero facilisis iaculis.</p>
+              <p>Nulla facilisi. Proin nec bibendum nisi. Sed non purus non purus interdum accumsan sit amet nec purus. Fusce id nisi sit amet leo tincidunt efficitur.</p>
+          </div>
+  
+          <!-- AD SLOT 2: Middle of Content -->
+          <div class="ad-slot" id="div-gpt-ad-test-2">
+               <div>[Place Ad Slot 2 Here]</div>
+          </div>
+  
+          <div class="card">
+              <h2>End of Page</h2>
+              <p>Test complete. Review alignment and responsiveness across different viewport sizes.</p>
+          </div>
+  
+      </div>
+  
+  </body>
+  </html>
+
