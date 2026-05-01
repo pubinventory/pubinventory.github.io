@@ -44,12 +44,9 @@
               position: relative;
               clear: both;
               min-width: 380px;
+              min-height: 200px;
           }
-          .ad-slot::before {
-              content: "AD PLACEMENT";
-              position: absolute;
-              top: 5px;
-              left: 5px;
+          .ad-label {
               font-size: 0.7rem;
               font-weight: bold;
               color: #6c757d;
@@ -80,11 +77,12 @@
   
           <!-- AD SLOT 1: Top of Page / In-Feed -->
           <div class="ad-slot">
+          <div class="ad-label"></div>
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356814494732193"
                crossorigin="anonymous"></script>
           <!-- resp-test -->
           <ins class="adsbygoogle"
-               style="display:block"
+               style="display:block; width:100%"
                data-ad-client="ca-pub-5356814494732193"
                data-ad-slot="8918208744"
                data-ad-format="auto"
@@ -103,7 +101,8 @@
           </div>
   
           <!-- AD SLOT 2: Middle of Content -->
-          <div class="ad-slot" id="div-gpt-ad-test-2">
+          <div class="ad-label">Ad placement</div>
+          <div class="ad-slot">
                <div>[Place Ad Slot 2 Here]</div>
           </div>
   
