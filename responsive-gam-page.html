@@ -9,6 +9,13 @@
       <script>
         window.googletag = window.googletag || {cmd: []};
         googletag.cmd.push(function() {
+          // Set page level config.
+          googletag.setConfig({
+            adsenseAttributes: {
+              document_language: 'en'
+            }
+          });
+          
           googletag.defineSlot('/8479/demo/responsive_code', ['auto'], 'div-gpt-ad-1778003324635-0').addService(googletag.pubads());
           googletag.pubads().enableSingleRequest();
           googletag.enableServices();
