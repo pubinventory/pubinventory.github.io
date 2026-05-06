@@ -17,6 +17,9 @@
           });
           
           googletag.defineSlot('/8479/demo/responsive_code', ['auto'], 'div-gpt-ad-1778003324635-0').addService(googletag.pubads());
+          googletag.defineSlot('/8479/demo/responsive_code/responsive-1', [1, 1], 'div-gpt-ad-1778087563277-0').addService(googletag.pubads());
+          googletag.defineSlot('/8479/demo/responsive_code/responsive-2', [1, 1], 'div-gpt-ad-1778087702144-0').addService(googletag.pubads());
+
           googletag.pubads().enableSingleRequest();
           googletag.enableServices();
         });
@@ -61,6 +64,7 @@
               align-items: center;
               text-align: center;
               min-height: 100px; /* Minimum visual height for placeholders */
+              max-width: 350px;
               position: relative;
               clear: both;
           }
@@ -115,7 +119,12 @@
         
           <!-- AD SLOT 1: Top of Page / In-Feed -->
           <div class="ad-slot" id="div-gpt-ad-test-1">
-
+            <!-- /8479/demo/responsive_code/responsive-1 -->
+            <div id='div-gpt-ad-1778087563277-0'>
+              <script>
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1778087563277-0'); });
+              </script>
+            </div>
           </div>
   
           <div class="card">
@@ -128,7 +137,12 @@ Create images in seconds: With Nano Banana, our latest image generation model, y
   
           <!-- AD SLOT 2: Middle of Content -->
           <div class="ad-slot" id="div-gpt-ad-test-2">
-               <div>[Place Ad Slot 2 Here]</div>
+            <!-- /8479/demo/responsive_code/responsive-2 -->
+            <div id='div-gpt-ad-1778087702144-0'>
+              <script>
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1778087702144-0'); });
+              </script>
+            </div>
           </div>
   
           <div class="card">
