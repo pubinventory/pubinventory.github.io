@@ -31,6 +31,8 @@
           googletag.defineSlot('/8479/demo/responsive_code/responsive-2', ['auto'], 'div-gpt-ad-1778145403595-0').addService(googletag.pubads());
           googletag.defineSlot('/8479/demo/responsive_code/responsive-3', ['auto'], 'div-gpt-ad-1778147656294-0').addService(googletag.pubads());
 
+          googletag.pubads().enableSingleRequest();
+
           googletag.enableServices();
         });
       </script>
