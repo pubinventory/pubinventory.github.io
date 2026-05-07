@@ -7,6 +7,16 @@
       <!-- Load GPT library -->
       <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
       <script>
+        // disable amp-inabox
+        console.warn("Installing fetch monkeypatch to disable amp-inabox.");
+        const f = window.fetch;
+        window.fetch = (url, config) => {
+          if (url.match("/gampad/ads")) {
+            url += "&expflags=render_as_amp_if_supported:false";
+          }
+          return f(url, config);
+        };
+        
         window.googletag = window.googletag || {cmd: []};
         googletag.cmd.push(function() {
           // Set page level config.
