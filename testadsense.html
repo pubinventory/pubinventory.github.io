@@ -26,12 +26,47 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Preserving dimensions of Google AdSense responsive slots to prevent layout shift */
+
+        /* Reusable Responsive Container Sizing */
+        .page-container {
+            max-width: 80rem; /* 1280px / max-w-7xl */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (min-width: 640px) {
+            .page-container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .page-container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        /* Grid Layout Sizing */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 1024px) {
+            .layout-grid {
+                grid-template-columns: 160px 1fr 300px;
+            }
+        }
+
+        /* AdSense Placeholders - Preserving Dimensions to Prevent Cumulative Layout Shift (CLS) */
         .adsense-placeholder {
             background-color: #f8fafc;
             border: 1px dashed #cbd5e1;
@@ -39,20 +74,96 @@
             position: relative;
             overflow: hidden;
         }
+
+        /* Specific Ad Slot Sizing */
+        .ad-slot-leaderboard {
+            width: 100%;
+            min-height: 90px;
+        }
+        @media (min-width: 768px) {
+            .ad-slot-leaderboard {
+                min-height: 120px;
+            }
+        }
+
+        .ad-slot-skyscraper {
+            min-height: 600px;
+        }
+
+        .ad-slot-inline {
+            min-height: 250px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .ad-slot-footer-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50px;
+        }
+        @media (min-width: 768px) {
+            .ad-slot-footer-wrapper {
+                min-height: 75px;
+            }
+        }
+
+        /* Class-based AdSense Engine styles (replaces inline styles) */
+        .adsense-block-default {
+            display: block;
+        }
+        
+        .adsense-block-centered {
+            display: block;
+            text-align: center;
+        }
+
+        .adsense-anchor-sticky {
+            display: inline-block;
+            width: 100%;
+            max-width: 728px;
+            height: 90px;
+        }
+
+        /* SVG Sizing */
+        .icon-lg {
+            width: 1.5rem; /* 24px */
+            height: 1.5rem;
+        }
+        .icon-md {
+            width: 1.25rem; /* 20px */
+            height: 1.25rem;
+        }
+        .icon-sm {
+            width: 0.875rem; /* 14px */
+            height: 0.875rem;
+        }
+
+        /* Component elements spacing */
+        .profile-avatar {
+            width: 2.5rem; /* 40px */
+            height: 2.5rem;
+        }
+        .bullet-dot {
+            width: 0.375rem; /* 6px */
+            height: 0.375rem;
+        }
     </style>
-    <!-- Official Google AdSense Client Script (Replace client with your publisher ID) -->
+    
+    <!-- Official Google AdSense Client Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356814494732193" crossorigin="anonymous"></script>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen">
 
 <!-- Static Site Header -->
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="page-container py-4">
         <div class="flex items-center justify-between">
             <!-- Brand -->
             <div class="flex items-center gap-3">
                 <div class="bg-brand-600 text-white p-2 rounded-lg shadow-md">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                 </div>
                 <div>
                     <h1 class="text-lg font-extrabold tracking-tight text-slate-900 flex items-center gap-2">
@@ -74,18 +185,17 @@
 </header>
 
 <!-- TOP LEADERBOARD: Google AdSense Responsive Header Banner -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-    <div class="adsense-placeholder w-full min-h-[90px] md:min-h-[120px] flex flex-col justify-between">
+<section class="page-container pt-6">
+    <div class="adsense-placeholder ad-slot-leaderboard flex flex-col justify-between">
         <!-- Label Badge -->
         <div class="px-3 py-1 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
             <span>Advertisement (Responsive Leaderboard Header)</span>
             <span>Slot: Header_Responsive</span>
         </div>
         
-        <!-- Live AdSense Placement code -->
-        <div class="justify-center items-center">
-            <ins class="adsbygoogle"
-                 style="display:block"
+        <!-- Live AdSense Placement code (Staged with custom CSS class instead of inline styles) -->
+        <div class="flex justify-center items-center">
+            <ins class="adsbygoogle adsense-block-default"
                  data-ad-client="ca-pub-5356814494732193"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
@@ -97,13 +207,13 @@
 </section>
 
 <!-- Main Layout Grid -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="grid grid-cols-1 lg:grid-cols-[160px_1fr_300px] gap-8">
+<main class="page-container py-8">
+    <div class="layout-grid">
 
         <!-- LEFT SIDEBAR: Standard Skyscraper Ad Placement -->
         <aside class="hidden lg:block">
             <div class="sticky top-28 space-y-4">
-                <div class="adsense-placeholder min-h-[600px] flex flex-col justify-between">
+                <div class="adsense-placeholder ad-slot-skyscraper flex flex-col justify-between">
                     <!-- Label Badge -->
                     <div class="px-3 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                         <span>Skyscraper</span>
@@ -112,8 +222,7 @@
 
                     <!-- Live AdSense Vertical Placement code -->
                     <div>
-                        <ins class="adsbygoogle"
-                             style="display:block"
+                        <ins class="adsbygoogle adsense-block-default"
                              data-ad-client="ca-pub-5356814494732193"
                              data-ad-format="auto"
                              data-full-width-responsive="true"></ins>
@@ -130,7 +239,7 @@
                 <!-- Ad Placement Sidebar Tip -->
                 <div class="p-4 bg-slate-100 border border-slate-200 rounded-xl">
                     <h5 class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                        <svg class="w-3.5 h-3.5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg class="icon-sm text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         Sidebar Strategy
                     </h5>
                     <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">
@@ -152,7 +261,7 @@
                     The Modern Publisher's Playbook: Maximizing Yield without Sacrificing User Experience
                 </h2>
                 <div class="flex items-center gap-3 py-3 border-y border-slate-200 text-sm">
-                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-brand-600">
+                    <div class="profile-avatar rounded-full bg-slate-200 flex items-center justify-center font-bold text-brand-600">
                         GP
                     </div>
                     <div>
@@ -174,7 +283,7 @@
             </section>
 
             <!-- INLINE AD 1: In-Article Native / Rectangle -->
-            <div class="adsense-placeholder my-8 min-h-[250px] flex flex-col justify-between">
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
                 <!-- Label Badge -->
                 <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>Advertisement (In-Article Responsive Slot 1)</span>
@@ -183,8 +292,7 @@
 
                 <!-- Live AdSense Native / Responsive Block -->
                 <div class="p-4 flex justify-center items-center">
-                    <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
+                    <ins class="adsbygoogle adsense-block-centered"
                          data-ad-format="auto"
                          data-ad-client="ca-pub-5356814494732193"></ins>
                     <script>
@@ -217,7 +325,7 @@
             </section>
 
             <!-- INLINE AD 2: In-Article Native / Rectangle -->
-            <div class="adsense-placeholder my-8 min-h-[250px] flex flex-col justify-between">
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
                 <!-- Label Badge -->
                 <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>Advertisement (In-Article Responsive Slot 2)</span>
@@ -225,9 +333,8 @@
                 </div>
 
                 <!-- Live AdSense Native / Responsive Block -->
-                <div>
-                    <ins class="adsbygoogle"
-                         style="display:block; text-align:center;"
+                <div class="p-4 flex justify-center items-center">
+                    <ins class="adsbygoogle adsense-block-centered"
                          data-ad-format="auto"
                          data-ad-client="ca-pub-5356814494732193"></ins>
                     <script>
@@ -247,7 +354,7 @@
                     One of the biggest mistakes publishers make is letting dynamic ads "push" down content once they finish loading. Google's Search Engine Ranking algorithm penalizes sites with bad <b>Cumulative Layout Shift (CLS)</b>.
                 </p>
                 <p>
-                    To prevent layout shifting, you should always <b>pre-reserve dimensions</b> for your ad placeholders. In modern CSS, setting a min-height matching the most common ad size (like <code class="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono">min-h-[250px]</code> for sidebar blocks) ensures that text content stays anchored perfectly in place. This results in stable Core Web Vitals, improved UX, and higher search engine ranking.
+                    To prevent layout shifting, you should always <b>pre-reserve dimensions</b> for your ad placeholders. In modern CSS, setting a min-height matching the most common ad size (like the configured <code class="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono">ad-slot-inline</code> class) ensures that text content stays anchored perfectly in place. This results in stable Core Web Vitals, improved UX, and higher search engine ranking.
                 </p>
             </section>
         </article>
@@ -256,7 +363,7 @@
         <aside class="space-y-8">
             
             <!-- Right Sidebar Ad: Medium Rectangle (300x250 Alternative) -->
-            <div class="adsense-placeholder">
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
                 <!-- Label Badge -->
                 <div class="px-3 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>Premium Sidebar Block</span>
@@ -265,14 +372,13 @@
 
                 <!-- Live AdSense Rectangle code -->
                 <div>
-                    <ins class="adsbygoogle"
-                         style="display:block"
+                    <ins class="adsbygoogle adsense-block-default"
                          data-ad-client="ca-pub-5356814494732193"
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
                     <script>
                          (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
+                    </script>
                 </div>
 
                 <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
@@ -284,22 +390,22 @@
             <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm space-y-4">
                 <div class="flex items-center gap-2 pb-2 border-b border-slate-100">
                     <span class="p-1.5 bg-brand-50 text-brand-600 rounded-lg">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        <svg class="icon-md" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                     </span>
                     <h4 class="font-bold text-sm text-slate-900">Monetization Guidelines</h4>
                 </div>
                 
                 <ul class="space-y-3 text-xs text-slate-600">
                     <li class="flex items-start gap-2">
-                        <span class="w-1.5 h-1.5 bg-brand-600 rounded-full mt-1.5 shrink-0"></span>
+                        <span class="bullet-dot bg-brand-600 rounded-full mt-1.5 shrink-0"></span>
                         <span><b>Auto Ads:</b> Combine in-page static slots with Google's Console Auto Ads to maximize programmatic coverage dynamically.</span>
                     </li>
                     <li class="flex items-start gap-2">
-                        <span class="w-1.5 h-1.5 bg-brand-600 rounded-full mt-1.5 shrink-0"></span>
+                        <span class="bullet-dot bg-brand-600 rounded-full mt-1.5 shrink-0"></span>
                         <span><b>AdSense Policy:</b> Ensure clear content borders and never label placeholders with misleading text (only "Advertisement" or "Sponsored").</span>
                     </li>
                     <li class="flex items-start gap-2">
-                        <span class="w-1.5 h-1.5 bg-brand-600 rounded-full mt-1.5 shrink-0"></span>
+                        <span class="bullet-dot bg-brand-600 rounded-full mt-1.5 shrink-0"></span>
                         <span><b>CLS Compliance:</b> Avoid dynamic resizing shifts on scroll to maintain stable UX rankings on search engines.</span>
                     </li>
                 </ul>
@@ -326,17 +432,16 @@
 
 <!-- STICKY ANCHOR / FIXED FOOTER AD BANNER -->
 <section class="fixed bottom-0 inset-x-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_20px_-4px_rgba(0,0,0,0.08)] py-2.5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="page-container flex flex-col md:flex-row items-center justify-between gap-4">
         
         <!-- Ad Label Badge -->
         <div class="text-[9px] text-slate-400 font-bold uppercase tracking-wider shrink-0 md:text-left text-center w-full md:w-auto">
             Advertisement (Sticky Anchor / Responsive Footer Banner)
         </div>
 
-        <!-- Live Responsive AdSense tag inside Footer anchor wrapper -->
-        <div class="flex-1 w-full flex justify-center items-center min-h-[50px] md:min-h-[75px]">
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:100%;max-width:728px;height:90px"
+        <!-- Live Responsive AdSense tag inside Footer anchor wrapper (Inline styles extracted to CSS classes) -->
+        <div class="ad-slot-footer-wrapper">
+            <ins class="adsbygoogle adsense-anchor-sticky"
                  data-ad-client="ca-pub-5356814494732193"></ins>
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
