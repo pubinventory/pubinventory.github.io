@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdOps Pro - Static AdSense Responsive Template</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f5f7ff',
+                            100: '#ebf0ff',
+                            600: '#3b82f6',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Reusable Responsive Container Sizing */
+        .page-container {
+            max-width: 80rem; /* 1280px / max-w-7xl */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (min-width: 640px) {
+            .page-container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .page-container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        /* Grid Layout Sizing */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 1024px) {
+            .layout-grid {
+                grid-template-columns: 160px 1fr 300px;
+            }
+        }
+
+        /* AdSense Placeholders - Preserving Dimensions to Prevent Cumulative Layout Shift (CLS) */
+        .adsense-placeholder {
+            background-color: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 0.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Specific Ad Slot Sizing */
+        .ad-slot-leaderboard {
+            width: 100%;
+        }
+
+        .ad-slot-skyscraper {
+            
+        }
+
+        .ad-slot-inline {
+            min-height: 250px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .ad-slot-footer-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50px;
+        }
+        @media (min-width: 768px) {
+            .ad-slot-footer-wrapper {
+                min-height: 75px;
+            }
+        }
+
+        /* Class-based AdSense Engine styles (replaces inline styles) */
+        .adsense-block-default {
+            display: block;
+        }
+        
+        .adsense-block-centered {
+            display: block;
+            text-align: center;
+        }
+
+        .adsense-anchor-sticky {
+            display: inline-block;
+            width: 100%;
+            max-width: 730px;
+            max-height: 100px;
+        }
+
+        /* SVG Sizing */
+        .icon-lg {
+            width: 1.5rem; /* 24px */
+            height: 1.5rem;
+        }
+        .icon-md {
+            width: 1.25rem; /* 20px */
+            height: 1.25rem;
+        }
+        .icon-sm {
+            width: 0.875rem; /* 14px */
+            height: 0.875rem;
+        }
+
+        /* Component elements spacing */
+        .profile-avatar {
+            width: 2.5rem; /* 40px */
+            height: 2.5rem;
+        }
+        .bullet-dot {
+            width: 0.375rem; /* 6px */
+            height: 0.375rem;
+        }
+    </style>
+    
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+    <script>
+      // disable amp-inabox
+      console.warn("Installing fetch monkeypatch to disable amp-inabox.");
+      const f = window.fetch;
+      window.fetch = (url, config) => {
+        if (url.match("/gampad/ads")) {
+          url += "&expflags=render_as_amp_if_supported:false";
+        }
+        return f(url, config);
+      };
+      
+      window.googletag = window.googletag || {cmd: []};
+      googletag.cmd.push(function() {
+        // Set page level config.
+        googletag.setConfig({
+          adsenseAttributes: {
+            document_language: 'en'
+          }
+        });
+        
+        googletag.defineSlot('/8479/demo/responsive_code', ['auto'], 'div-gpt-ad-1778147150401-0').addService(googletag.pubads());
+        googletag.defineSlot('/8479/demo/responsive_code/responsive-1', ['auto'], 'div-gpt-ad-1778145372400-0').addService(googletag.pubads());
+        googletag.enableServices();
+      });
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+<!-- Static Site Header -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="page-container py-4">
+        <div class="flex items-center justify-between">
+            <!-- Brand -->
+            <div class="flex items-center gap-3">
+                <div class="bg-brand-600 text-white p-2 rounded-lg shadow-md">
+                    <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <div>
+                    <h1 class="text-lg font-extrabold tracking-tight text-slate-900 flex items-center gap-2">
+                        AdOps Pro <span class="bg-brand-100 text-brand-700 text-xs px-2.5 py-0.5 rounded-full font-medium">Responsive Tag Template</span>
+                    </h1>
+                    <p class="text-xs text-slate-500">Optimized layout blocks leveraging Google AdSense auto-responsive ads</p>
+                </div>
+            </div>
+
+            <!-- Static Clean Navigation -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
+                <a href="#" class="text-brand-600 hover:text-brand-700">Home</a>
+                <a href="#" class="hover:text-brand-600">Case Studies</a>
+                <a href="#" class="hover:text-brand-600">Layout Tips</a>
+                <a href="#" class="bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-2 rounded-lg transition-all">Support</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- TOP LEADERBOARD: Google AdSense Responsive Header Banner -->
+<section class="page-container pt-6">
+    <div class="adsense-placeholder ad-slot-leaderboard flex flex-col justify-between">
+        <!-- Label Badge -->
+        <div class="px-3 py-1 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
+            <span>min height for div</span>
+            <span>Slot: Header_Responsive</span>
+        </div>
+        
+        <!-- Live AdSense Placement code (Staged with custom CSS class instead of inline styles) -->
+        <div class="justify-center items-center">
+          <div id='div-gpt-ad-1778147150401-0' style="min-height: 250px">
+            <script>
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1778147150401-0'); });
+            </script>
+          </div>
+        </div>
+    </div>
+</section>
+
+<!-- INLINE AD 1: In-Article Native / Rectangle -->
+<div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
+    <!-- Label Badge -->
+    <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
+        <span>min height for parent div</span>
+        <span>Slot: Inline_Content_1</span>
+    </div>
+
+    <!-- Live AdSense Native / Responsive Block -->
+    <div style="min-height: 250px">
+      <div id='div-gpt-ad-1778145372400-0'>
+        <script>
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1778145372400-0'); });
+        </script>
+      </div>
+    </div>
+
+    <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
+        Will dynamically match content layout width
+    </div>
+</div>
+    
+<!-- Main Layout Grid -->
+<main class="page-container py-8">
+    <div class="layout-grid">
+
+        <!-- LEFT SIDEBAR: Standard Skyscraper Ad Placement -->
+        <aside class="hidden lg:block">
+            <div class="sticky top-28 space-y-4">
+                <div class="adsense-placeholder ad-slot-skyscraper flex flex-col justify-between">
+                    <!-- Label Badge -->
+                    <div class="px-3 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
+                        <span>Skyscraper</span>
+                        <span>Slot: Left_Vertical</span>
+                    </div>
+
+
+                    <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
+                        160x600 Vertical Standard
+                    </div>
+                </div>
+                
+                <!-- Ad Placement Sidebar Tip -->
+                <div class="p-4 bg-slate-100 border border-slate-200 rounded-xl">
+                    <h5 class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                        <svg class="icon-sm text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Sidebar Strategy
+                    </h5>
+                    <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">
+                        Vertical skyscrapers maintain viewability benchmarks as readers scroll through long content columns.
+                    </p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CENTER COLUMN: Monetization Content and In-article tags -->
+        <article class="space-y-8 max-w-3xl mx-auto lg:max-w-none">
+            <!-- Header Metadata -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="bg-brand-50 text-brand-600 text-xs font-semibold px-2.5 py-1 rounded-md">Monetization Guide</span>
+                    <span class="text-slate-400 text-xs">Updated May 2026</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                    The Modern Publisher's Playbook: Maximizing Yield without Sacrificing User Experience
+                </h2>
+                <div class="flex items-center gap-3 py-3 border-y border-slate-200 text-sm">
+                    <div class="profile-avatar rounded-full bg-slate-200 flex items-center justify-center font-bold text-brand-600">
+                        GP
+                    </div>
+                    <div>
+                        <p class="font-semibold text-slate-800">Gemini Publisher Insights</p>
+                        <p class="text-xs text-slate-500">Standardizing Layout Structures with Google AdSense Tagging</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1 -->
+            <section class="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
+                <p class="text-lg">
+                    Web ad monetization has evolved from basic, annoying flashing banners into a sophisticated science of digital yield optimization. Today, publishers must balance clean, fast layouts with highly viewable, context-aware ad placements. Achieving high yields is no longer just about filling empty blocks; it is about programmatic architecture, header bidding configurations, and user experience preservation.
+                </p>
+                <h3 class="text-xl font-bold text-slate-900 pt-2">1. Understanding the Programmatic Ecosystem</h3>
+                <p>
+                    To make the most out of your ad inventory, you need to understand how demand flows to your page. Modern publishers rarely rely solely on a single ad network like Google AdSense. Instead, they leverage <b>Header Bidding</b> (via client-side frameworks like Prebid.js or server-side solutions like Google Open Bidding). Header bidding allows dozens of supply-side platforms (SSPs) to bid simultaneously on your ad spots before your page-level ad server (like Google Ad Manager) makes the final selection. This boosts CPMs by up to 40% through real-time market competition.
+                </p>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
+                <h3 class="text-xl font-bold text-slate-900">2. Optimal Ad Placements: Where the Clicks Are</h3>
+                <p>
+                    Effective ad placement is about capitalizing on user interaction paths without blocking content. Here is a review of standard high-yield zones:
+                </p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>
+                        <b>Above the Fold (Top Banner):</b> While great for massive exposure, standard header leaderboards suffer from "banner blindness" if they are loaded before content. Modern setups delay rendering until the content structure is active, stabilizing Cumulative Layout Shift (CLS).
+                    </li>
+                    <li>
+                        <b>In-Article / Native:</b> Inline ads (like the medium rectangle simulated above) are the absolute highest performers for CTR (Click-Through Rate). Placing them naturally between major editorial headers (e.g., between paragraphs 3 and 4) captures user focus at the transition points of reading.
+                    </li>
+                    <li>
+                        <b>Sticky Sidebars:</b> Sidebars allow skyscraper ads to glide alongside the reading material, generating sustained viewability metrics, which programmatic buyers bid heavily on.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- INLINE AD 2: In-Article Native / Rectangle -->
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
+                <!-- Label Badge -->
+                <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
+                    <span>Advertisement (In-Article Responsive Slot 2)</span>
+                    <span>Slot: Inline_Content_2</span>
+                </div>
+
+
+                <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
+                    Fluid native configuration
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <section class="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
+                <h3 class="text-xl font-bold text-slate-900">3. Layout Shifts & Core Web Vitals Optimization</h3>
+                <p>
+                    One of the biggest mistakes publishers make is letting dynamic ads "push" down content once they finish loading. Google's Search Engine Ranking algorithm penalizes sites with bad <b>Cumulative Layout Shift (CLS)</b>.
+                </p>
+                <p>
+                    To prevent layout shifting, you should always <b>pre-reserve dimensions</b> for your ad placeholders. In modern CSS, setting a min-height matching the most common ad size (like the configured <code class="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono">ad-slot-inline</code> class) ensures that text content stays anchored perfectly in place. This results in stable Core Web Vitals, improved UX, and higher search engine ranking.
+                </p>
+            </section>
+            <div style="height: 200px;"></div>
+        </article>
+
+        <!-- RIGHT COLUMN: Widget Sidebar & AdSense Rectangle Slot -->
+        <aside class="space-y-8">
+            
+            <!-- Right Sidebar Ad: Medium Rectangle (300x250 Alternative) -->
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
+                <!-- Label Badge -->
+                <div class="px-3 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
+                    <span>Premium Sidebar Block</span>
+                    <span>Slot: Right_Sidebar</span>
+                </div>
+
+                <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
+                    Recommended Size: 300x250 or 336x280
+                </div>
+            </div>
+
+            <!-- Static Resource Center Panel (No JS required) -->
+            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm space-y-4">
+                <div class="flex items-center gap-2 pb-2 border-b border-slate-100">
+                    <span class="p-1.5 bg-brand-50 text-brand-600 rounded-lg">
+                        <svg class="icon-md" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </span>
+                    <h4 class="font-bold text-sm text-slate-900">Monetization Guidelines</h4>
+                </div>
+                
+                <ul class="space-y-3 text-xs text-slate-600">
+                    <li class="flex items-start gap-2">
+                        <span class="bullet-dot bg-brand-600 rounded-full mt-1.5 shrink-0"></span>
+                        <span><b>Auto Ads:</b> Combine in-page static slots with Google's Console Auto Ads to maximize programmatic coverage dynamically.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="bullet-dot bg-brand-600 rounded-full mt-1.5 shrink-0"></span>
+                        <span><b>AdSense Policy:</b> Ensure clear content borders and never label placeholders with misleading text (only "Advertisement" or "Sponsored").</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="bullet-dot bg-brand-600 rounded-full mt-1.5 shrink-0"></span>
+                        <span><b>CLS Compliance:</b> Avoid dynamic resizing shifts on scroll to maintain stable UX rankings on search engines.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Industry Glossary Widget -->
+            <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+                <h4 class="font-bold text-xs text-slate-900 mb-3 uppercase tracking-wider text-slate-400">Glossary of Key Terms</h4>
+                <div class="space-y-3 text-xs">
+                    <div>
+                        <span class="font-bold text-slate-800">CPM (Cost Per Mille)</span>
+                        <p class="text-slate-500 mt-0.5">The price tag of one thousand advertisement impressions on a website page.</p>
+                    </div>
+                    <div>
+                        <span class="font-bold text-slate-800">CTR (Click-Through Rate)</span>
+                        <p class="text-slate-500 mt-0.5">The percentage of readers who click on an impression to navigate further.</p>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+</main>
+
+<!-- STICKY ANCHOR / FIXED FOOTER AD BANNER -->
+<section class="fixed bottom-0 inset-x-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_20px_-4px_rgba(0,0,0,0.08)] py-2.5">
+    <div class="page-container flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <!-- Ad Label Badge -->
+        <div class="text-[9px] text-slate-400 font-bold uppercase tracking-wider shrink-0 md:text-left text-center w-full md:w-auto">
+            Advertisement (Sticky Anchor / Responsive Footer Banner)
+        </div>
+
+        <!-- Support Info Tip -->
+        <div class="hidden lg:flex items-center gap-1.5 text-[9px] text-slate-400 shrink-0">
+            <span>Slot: Footer_Anchor_Sticky</span>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
