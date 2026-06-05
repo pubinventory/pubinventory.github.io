@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Auto Banners MVP Test</title>
+    
+    <!-- Load GPT from production CDN -->
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+    <script>
+      // disable amp-inabox
+      console.warn("Installing fetch monkeypatch to disable amp-inabox.");
+      const f = window.fetch;
+      window.fetch = (url, config) => {
+        if (url.match("/gampad/ads")) {
+          url += "&expflags=render_as_amp_if_supported:false";
+        }
+        return f(url, config);
+      };
+      
+      window.googletag = window.googletag || {cmd: []};
+      googletag.cmd.push(function() {
+        // Set page level config.
+        googletag.setConfig({
+          adsenseAttributes: {
+            document_language: 'en'
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Auto Banners MVP Test</h1>
+    <p>This page tests the Auto Banners MVP slot insertion.</p>
+
+    <!-- Placement 1 Anchor (Header) -->
+    <div id="header" class="site-header nav-wrapper" style="border: 2px dashed blue; min-height: 100px; margin: 20px 0; padding: 10px;">
+      <b>Header (Mock Anchor 1)</b>
+      <p>The auto banner slot should be inserted inside this div.</p>
+    </div>
+
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3 (This is the 3rd paragraph, which matches Placement 2 in mock PUC, but it has no ID so MVP should ignore it.)</p>
+
+    <!-- Placement 3 Anchor (Footer) -->
+    <footer id="colophon" style="border: 2px dashed green; min-height: 100px; margin: 20px 0; padding: 10px;">
+      <b>Footer (Mock Anchor 3)</b>
+      <p>Another auto banner slot should be inserted inside this footer.</p>
+    </footer>
+  </body>
+</html>
