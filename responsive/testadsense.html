@@ -187,43 +187,17 @@
             <span>Slot: Header_Responsive</span>
         </div>
         
-        <!-- Live AdSense Placement code (Staged with custom CSS class instead of inline styles) -->
+        <!-- Live AdSense Placement code -->
+        <ins class="adsbygoogle adsense-block-default"
+             style="min-height: 250px"
+             data-ad-client="ca-pub-5356814494732193"
+             data-ad-format="auto"
+             data-full-width-responsive="false"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 </section>
-<div>
-    <ins class="adsbygoogle adsense-block-default"
-         style="min-height: 250px"
-         data-ad-client="ca-pub-5356814494732193"
-         data-ad-format="auto"
-         data-full-width-responsive="false"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-<div style="min-height: 250px">
-    <ins class="adsbygoogle adsense-block-default"
-         data-ad-format="auto"
-         data-ad-client="ca-pub-5356814494732193"
-         data-full-width-responsive="false"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
-    
-<!-- INLINE AD 1: In-Article Native / Rectangle -->
-<div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
-    <!-- Label Badge -->
-    <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
-        <span>min height for parent div</span>
-        <span>Slot: Inline_Content_1</span>
-    </div>
-
-    <!-- Live AdSense Native / Responsive Block -->
-
-    <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
-        Will dynamically match content layout width
-    </div>
-</div>
     
 <!-- Main Layout Grid -->
 <main class="page-container py-8">
@@ -300,6 +274,30 @@
                     To make the most out of your ad inventory, you need to understand how demand flows to your page. Modern publishers rarely rely solely on a single ad network like Google AdSense. Instead, they leverage <b>Header Bidding</b> (via client-side frameworks like Prebid.js or server-side solutions like Google Open Bidding). Header bidding allows dozens of supply-side platforms (SSPs) to bid simultaneously on your ad spots before your page-level ad server (like Google Ad Manager) makes the final selection. This boosts CPMs by up to 40% through real-time market competition.
                 </p>
             </section>
+
+            <!-- INLINE AD 1: In-Article Native / Rectangle (Moved inside the article content) -->
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
+                <!-- Label Badge -->
+                <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
+                    <span>min height for parent div, no FWR</span>
+                    <span>Slot: Inline_Content_1</span>
+                </div>
+
+                <!-- Live AdSense Native / Responsive Block -->
+                <div class="p-4 justify-center items-center">
+                    <ins class="adsbygoogle adsense-block-centered"
+                         data-ad-format="auto"
+                         data-ad-client="ca-pub-5356814494732193"
+                         data-full-width-responsive="false"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
+                    Will dynamically match content layout width
+                </div>
+            </div>
 
             <!-- Section 2 -->
             <section class="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
@@ -439,7 +437,9 @@
         <!-- Live Responsive AdSense tag inside Footer anchor wrapper (Inline styles extracted to CSS classes) -->
         <div class="ad-slot-footer-wrapper">
             <ins class="adsbygoogle adsense-anchor-sticky"
-                 data-ad-client="ca-pub-5356814494732193"></ins>
+                 data-ad-client="ca-pub-5356814494732193"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
