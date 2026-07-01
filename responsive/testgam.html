@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdOps Pro - Static AdSense Responsive Template</title>
+    <title>AdOps Pro - Static GAM Responsive Template</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -32,7 +32,6 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-
         /* Reusable Responsive Container Sizing */
         .page-container {
             max-width: 80rem; /* 1280px / max-w-7xl */
@@ -53,7 +52,6 @@
                 padding-right: 2rem;
             }
         }
-
         /* Grid Layout Sizing */
         .layout-grid {
             display: grid;
@@ -65,7 +63,6 @@
                 grid-template-columns: 160px 1fr 300px;
             }
         }
-
         /* AdSense Placeholders - Preserving Dimensions to Prevent Cumulative Layout Shift (CLS) */
         .adsense-placeholder {
             background-color: #f8fafc;
@@ -74,22 +71,18 @@
             position: relative;
             overflow: hidden;
         }
-
         /* Specific Ad Slot Sizing */
         .ad-slot-leaderboard {
             width: 100%;
         }
-
         .ad-slot-skyscraper {
             
         }
-
         .ad-slot-inline {
             min-height: 250px;
             margin-top: 2rem;
             margin-bottom: 2rem;
         }
-
         .ad-slot-footer-wrapper {
             width: 100%;
             display: flex;
@@ -102,7 +95,6 @@
                 min-height: 75px;
             }
         }
-
         /* Class-based AdSense Engine styles (replaces inline styles) */
         .adsense-block-default {
             display: block;
@@ -112,14 +104,12 @@
             display: block;
             text-align: center;
         }
-
         .adsense-anchor-sticky {
             display: inline-block;
             width: 100%;
             max-width: 730px;
             max-height: 100px;
         }
-
         /* SVG Sizing */
         .icon-lg {
             width: 1.5rem; /* 24px */
@@ -133,7 +123,6 @@
             width: 0.875rem; /* 14px */
             height: 0.875rem;
         }
-
         /* Component elements spacing */
         .profile-avatar {
             width: 2.5rem; /* 40px */
@@ -145,6 +134,7 @@
         }
     </style>
     
+    <!-- Google Publisher Tag (GPT) Script -->
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
     <script>
       // disable amp-inabox
@@ -166,14 +156,20 @@
           }
         });
         
-        googletag.defineSlot('/8479/demo/responsive_code', ['auto'], '/8479/demo/responsive_code_0').addService(googletag.pubads());
-        googletag.defineSlot('/8479/demo/responsive_code/responsive-1', ['auto'], 'div-gpt-ad-1778145372400-0').addService(googletag.pubads());
+        // Define GAM slots matching the AdSense layout
+        googletag.defineSlot('/8479/demo/responsive_code', ['auto'], 'div-gpt-ad-header').addService(googletag.pubads());
+        googletag.defineSlot('/8479/demo/responsive_code/left-vertical', ['auto'], 'div-gpt-ad-left-vertical').addService(googletag.pubads());
+        googletag.defineSlot('/8479/demo/responsive_code/inline-1', ['auto'], 'div-gpt-ad-inline-1').addService(googletag.pubads());
+        googletag.defineSlot('/8479/demo/responsive_code/inline-2', ['auto'], 'div-gpt-ad-inline-2').addService(googletag.pubads());
+        googletag.defineSlot('/8479/demo/responsive_code/right-sidebar', ['auto'], 'div-gpt-ad-right-sidebar').addService(googletag.pubads());
+        googletag.defineSlot('/8479/demo/responsive_code/footer', ['auto'], 'div-gpt-ad-footer').addService(googletag.pubads());
+        
+        googletag.pubads().enableSingleRequest();
         googletag.enableServices();
       });
     </script>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen">
-
 <!-- Static Site Header -->
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
     <div class="page-container py-4">
@@ -187,10 +183,9 @@
                     <h1 class="text-lg font-extrabold tracking-tight text-slate-900 flex items-center gap-2">
                         AdOps Pro <span class="bg-brand-100 text-brand-700 text-xs px-2.5 py-0.5 rounded-full font-medium">Responsive Tag Template</span>
                     </h1>
-                    <p class="text-xs text-slate-500">Optimized layout blocks leveraging Google AdSense auto-responsive ads</p>
+                    <p class="text-xs text-slate-500">Optimized layout blocks leveraging Google Ad Manager auto-responsive ads</p>
                 </div>
             </div>
-
             <!-- Static Clean Navigation -->
             <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
                 <a href="#" class="text-brand-600 hover:text-brand-700">Home</a>
@@ -201,51 +196,28 @@
         </div>
     </div>
 </header>
-
-<!-- TOP LEADERBOARD: Google AdSense Responsive Header Banner -->
+<!-- TOP LEADERBOARD: Google Ad Manager Responsive Header Banner -->
 <section class="page-container pt-6">
     <div class="adsense-placeholder ad-slot-leaderboard flex flex-col justify-between">
         <!-- Label Badge -->
         <div class="px-3 py-1 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
-            <span>min height for div</span>
+            <span>Advertisement (Responsive Leaderboard Header)</span>
             <span>Slot: Header_Responsive</span>
         </div>
         
+        <!-- Live GAM Placement code -->
+        <div class="justify-center items-center flex py-2">
+            <div id="div-gpt-ad-header" class="w-full text-center">
+                <script>
+                     googletag.cmd.push(function() { googletag.display('div-gpt-ad-header'); });
+                </script>
+            </div>
+        </div>
     </div>
 </section>
-    
-<div>
-  <div id='/8479/demo/responsive_code_0' style="min-height: 250px">
-    <script>
-      googletag.cmd.push(function() { googletag.display('/8479/demo/responsive_code_0'); });
-    </script>
-  </div>
-</div>
-<div style="min-height: 250px">
-  <div id='div-gpt-ad-1778145372400-0'>
-    <script>
-      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1778145372400-0'); });
-    </script>
-  </div>
-</div>
-    
-<!-- INLINE AD 1: In-Article Native / Rectangle -->
-<div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
-    <!-- Label Badge -->
-    <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
-        <span>min height for parent div</span>
-        <span>Slot: Inline_Content_1</span>
-    </div>
-    <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
-        Will dynamically match content layout width
-    </div>
-</div>
-
-    
 <!-- Main Layout Grid -->
 <main class="page-container py-8">
     <div class="layout-grid">
-
         <!-- LEFT SIDEBAR: Standard Skyscraper Ad Placement -->
         <aside class="hidden lg:block">
             <div class="sticky top-28 space-y-4">
@@ -255,8 +227,14 @@
                         <span>Skyscraper</span>
                         <span>Slot: Left_Vertical</span>
                     </div>
-
-
+                    <!-- Live GAM Vertical Placement code -->
+                    <div class="flex justify-center py-2">
+                        <div id="div-gpt-ad-left-vertical" class="w-full text-center">
+                            <script>
+                                 googletag.cmd.push(function() { googletag.display('div-gpt-ad-left-vertical'); });
+                            </script>
+                        </div>
+                    </div>
                     <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
                         160x600 Vertical Standard
                     </div>
@@ -274,7 +252,6 @@
                 </div>
             </div>
         </aside>
-
         <!-- CENTER COLUMN: Monetization Content and In-article tags -->
         <article class="space-y-8 max-w-3xl mx-auto lg:max-w-none">
             <!-- Header Metadata -->
@@ -292,11 +269,10 @@
                     </div>
                     <div>
                         <p class="font-semibold text-slate-800">Gemini Publisher Insights</p>
-                        <p class="text-xs text-slate-500">Standardizing Layout Structures with Google AdSense Tagging</p>
+                        <p class="text-xs text-slate-500">Standardizing Layout Structures with Google Ad Manager Tagging</p>
                     </div>
                 </div>
             </div>
-
             <!-- Section 1 -->
             <section class="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
                 <p class="text-lg">
@@ -307,7 +283,25 @@
                     To make the most out of your ad inventory, you need to understand how demand flows to your page. Modern publishers rarely rely solely on a single ad network like Google AdSense. Instead, they leverage <b>Header Bidding</b> (via client-side frameworks like Prebid.js or server-side solutions like Google Open Bidding). Header bidding allows dozens of supply-side platforms (SSPs) to bid simultaneously on your ad spots before your page-level ad server (like Google Ad Manager) makes the final selection. This boosts CPMs by up to 40% through real-time market competition.
                 </p>
             </section>
-
+            <!-- INLINE AD 1: In-Article Native / Rectangle -->
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
+                <!-- Label Badge -->
+                <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
+                    <span>Advertisement (In-Article Responsive Slot 1)</span>
+                    <span>Slot: Inline_Content_1</span>
+                </div>
+                <!-- Live GAM Native / Responsive Block -->
+                <div class="p-4 justify-center items-center flex">
+                    <div id="div-gpt-ad-inline-1" class="w-full text-center">
+                        <script>
+                             googletag.cmd.push(function() { googletag.display('div-gpt-ad-inline-1'); });
+                        </script>
+                    </div>
+                </div>
+                <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
+                    Will dynamically match content layout width
+                </div>
+            </div>
             <!-- Section 2 -->
             <section class="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
                 <h3 class="text-xl font-bold text-slate-900">2. Optimal Ad Placements: Where the Clicks Are</h3>
@@ -326,7 +320,6 @@
                     </li>
                 </ul>
             </section>
-
             <!-- INLINE AD 2: In-Article Native / Rectangle -->
             <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
                 <!-- Label Badge -->
@@ -334,13 +327,18 @@
                     <span>Advertisement (In-Article Responsive Slot 2)</span>
                     <span>Slot: Inline_Content_2</span>
                 </div>
-
-
+                <!-- Live GAM Native / Responsive Block -->
+                <div class="p-4 justify-center items-center flex">
+                    <div id="div-gpt-ad-inline-2" class="w-full text-center">
+                        <script>
+                             googletag.cmd.push(function() { googletag.display('div-gpt-ad-inline-2'); });
+                        </script>
+                    </div>
+                </div>
                 <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
                     Fluid native configuration
                 </div>
             </div>
-
             <!-- Section 3 -->
             <section class="prose prose-slate max-w-none text-slate-600 leading-relaxed space-y-4">
                 <h3 class="text-xl font-bold text-slate-900">3. Layout Shifts & Core Web Vitals Optimization</h3>
@@ -353,8 +351,7 @@
             </section>
             <div style="height: 200px;"></div>
         </article>
-
-        <!-- RIGHT COLUMN: Widget Sidebar & AdSense Rectangle Slot -->
+        <!-- RIGHT COLUMN: Widget Sidebar & GAM Rectangle Slot -->
         <aside class="space-y-8">
             
             <!-- Right Sidebar Ad: Medium Rectangle (300x250 Alternative) -->
@@ -364,12 +361,18 @@
                     <span>Premium Sidebar Block</span>
                     <span>Slot: Right_Sidebar</span>
                 </div>
-
+                <!-- Live GAM Rectangle code -->
+                <div class="flex justify-center py-2">
+                    <div id="div-gpt-ad-right-sidebar" class="w-full text-center">
+                        <script>
+                             googletag.cmd.push(function() { googletag.display('div-gpt-ad-right-sidebar'); });
+                        </script>
+                    </div>
+                </div>
                 <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
                     Recommended Size: 300x250 or 336x280
                 </div>
             </div>
-
             <!-- Static Resource Center Panel (No JS required) -->
             <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm space-y-4">
                 <div class="flex items-center gap-2 pb-2 border-b border-slate-100">
@@ -394,7 +397,6 @@
                     </li>
                 </ul>
             </div>
-
             <!-- Industry Glossary Widget -->
             <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
                 <h4 class="font-bold text-xs text-slate-900 mb-3 uppercase tracking-wider text-slate-400">Glossary of Key Terms</h4>
@@ -409,11 +411,9 @@
                     </div>
                 </div>
             </div>
-
         </aside>
     </div>
 </main>
-
 <!-- STICKY ANCHOR / FIXED FOOTER AD BANNER -->
 <section class="fixed bottom-0 inset-x-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_20px_-4px_rgba(0,0,0,0.08)] py-2.5">
     <div class="page-container flex flex-col md:flex-row items-center justify-between gap-4">
@@ -422,13 +422,27 @@
         <div class="text-[9px] text-slate-400 font-bold uppercase tracking-wider shrink-0 md:text-left text-center w-full md:w-auto">
             Advertisement (Sticky Anchor / Responsive Footer Banner)
         </div>
-
+        <!-- Live Responsive GAM tag inside Footer anchor wrapper -->
+        <div class="ad-slot-footer-wrapper">
+            <div id="div-gpt-ad-footer" class="adsense-anchor-sticky text-center">
+                <script>
+                     googletag.cmd.push(function() { googletag.display('div-gpt-ad-footer'); });
+                </script>
+            </div>
+        </div>
         <!-- Support Info Tip -->
         <div class="hidden lg:flex items-center gap-1.5 text-[9px] text-slate-400 shrink-0">
             <span>Slot: Footer_Anchor_Sticky</span>
         </div>
     </div>
 </section>
-
 </body>
 </html>
+
+meixinc-us: meixinc-us.c.googlers.com
+gcert: 11h 40m
+
+Agent State Debug
+
+Incognito
+2026.06.22.03
