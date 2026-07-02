@@ -137,16 +137,6 @@
     <!-- Google Publisher Tag (GPT) Script -->
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=8479" crossorigin="anonymous"></script>
     <script>
-      // disable amp-inabox
-      console.warn("Installing fetch monkeypatch to disable amp-inabox.");
-      const f = window.fetch;
-      window.fetch = (url, config) => {
-        if (url.match("/gampad/ads")) {
-          url += "&expflags=render_as_amp_if_supported:false";
-        }
-        return f(url, config);
-      };
-      
       window.googletag = window.googletag || {cmd: []};
       googletag.cmd.push(function() {
         // Set page level config.
@@ -438,11 +428,3 @@
 </section>
 </body>
 </html>
-
-meixinc-us: meixinc-us.c.googlers.com
-gcert: 11h 40m
-
-Agent State Debug
-
-Incognito
-2026.06.22.03
