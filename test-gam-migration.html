@@ -12,13 +12,24 @@
          (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 
-   <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-6851705954091379"
-         data-restrict-data-processing="true"
-         data-ad-format="auto"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+   <h2>Ad Slot 2 (Second - With Privacy Settings)</h2>
+  <div id="slot-2-container"></div>
+  
+  <script>
+    // We use a timeout to guarantee the first slot fully initializes GPT 
+    // and calls googletag.enableServices() BEFORE the second slot is processed.
+    setTimeout(() => {
+      const container = document.getElementById('slot-2-container');
+      container.innerHTML = `
+        <ins class="adsbygoogle"
+             style="display:block; width: 300px; height: 250px;"
+             data-ad-client="ca-pub-6851705954091379"
+             data-ad-format="auto"
+             data-tag-for-child-directed-treatment="1"
+             data-restrict-data-processing="1"></ins>
+      `;
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    }, 2000);
+  </script>
 </body>
 </html>
