@@ -19,6 +19,7 @@
     // We use a timeout to guarantee the first slot fully initializes GPT 
     // and calls googletag.enableServices() BEFORE the second slot is processed.
     setTimeout(() => {
+      (adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;
       const container = document.getElementById('slot-2-container');
       container.innerHTML = `
         <ins class="adsbygoogle"
