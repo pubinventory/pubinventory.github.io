@@ -20,6 +20,27 @@
     });
   </script>
 
+  <!-- Canonical & OpenGraph Metadata (Maps to pre-classified approved test page) -->
+  <link rel="canonical" href="https://pubinventory.github.io/responsive/charmander-adsense.html">
+  <meta property="og:url" content="https://pubinventory.github.io/responsive/charmander-adsense.html">
+  <meta property="og:site_name" content="Pub Inventory’s Test Site">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Comprehensive Guide to Modern Auto Ads Placement & Layout Analysis">
+
+  <!-- Schema.org BlogPosting Structured Data for Auto Ads Parser -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Comprehensive Guide to Modern Auto Ads Placement & Layout Analysis",
+    "datePublished": "2026-07-27",
+    "author": {
+      "@type": "Person",
+      "name": "ASFE pubibnv"
+    }
+  }
+  </script>
+  
   <style>
     :root {
       color-scheme: light;
@@ -307,15 +328,15 @@
   <div class="container">
     <main>
 
-      <!-- SECTION 1: IN-ARTICLE PLACEMENT TEST -->
-      <article class="test-article" id="article">
+      <!-- SECTION 1: IN-ARTICLE PLACEMENT TEST WITH SCHEMA MICRODATA -->
+      <article class="test-article" id="article" itemscope itemtype="http://schema.org/BlogPosting">
         <span class="test-badge badge-article">Test Target 1: In-Article Placements (12 Paragraphs)</span>
-        <h1>Comprehensive Guide to Modern Auto Ads Placement & Layout Analysis</h1>
+        <h1 itemprop="headline">Comprehensive Guide to Modern Auto Ads Placement & Layout Analysis</h1>
 
         <div class="article-meta">
-          <span>By <strong>Sarah Jenkins</strong></span>
+          <span>By <strong itemprop="author">Sarah Jenkins</strong></span>
           <span>•</span>
-          <span>Published July 27, 2026</span>
+          <span>Published <time itemprop="datePublished" datetime="2026-07-27">July 27, 2026</time></span>
           <span>•</span>
           <span>8 min read</span>
         </div>
@@ -325,78 +346,83 @@
           <span style="font-weight: 600; font-size: 1.1rem;">Featured Article Hero Illustration</span>
         </div>
 
-        <p><strong>Paragraph 1:</strong> Auto Ads uses automated layout discovery algorithms to identify suitable placements for responsive display banners, native in-feed units, and anchor ads without requiring manual ad slot tags. This extended article tests multi-banner insertion density across deep-scroll pages.</p>
+        <!-- ARTICLE BODY WRAPPER FOR AUTO ADS ENGINE -->
+        <div itemprop="articleBody">
 
-        <p><strong>Paragraph 2:</strong> In standard editorial sites like <em>preparedsurvivorguide.com</em> and <em>retirewhiz.com</em>, long articles contain continuous blocks of text separated by headings and sub-sections. The placement engine evaluates the text-to-code ratio and calculates optimal vertical distances between potential ad candidates.</p>
+          <p><strong>Paragraph 1:</strong> Auto Ads uses automated layout discovery algorithms to identify suitable placements for responsive display banners, native in-feed units, and anchor ads without requiring manual ad slot tags. This extended article tests multi-banner insertion density across deep-scroll pages.</p>
 
-        <h2>1. Candidate Placement Discovery & Density Limits</h2>
-        <p><strong>Paragraph 3:</strong> The candidate positioning algorithm scans the DOM tree for container nodes such as paragraph tags (<code>&lt;p&gt;</code>), section wrappers, and block elements. Each container node is assigned a viability score based on its depth, visibility, font size, and text length.</p>
+          <p><strong>Paragraph 2:</strong> In standard editorial sites like <em>preparedsurvivorguide.com</em> and <em>retirewhiz.com</em>, long articles contain continuous blocks of text separated by headings and sub-sections. The placement engine evaluates the text-to-code ratio and calculates optimal vertical distances between potential ad candidates.</p>
 
-        <p><strong>Paragraph 4:</strong> To prevent ad clutter and maintain user experience, Auto Ads enforces minimum distance rules (e.g. minimum vertical pixel gap or minimum paragraph gap between adjacent banners). On longer pages, this allows multiple banners to spawn progressively as the user scrolls.</p>
+          <h2>1. Candidate Placement Discovery & Density Limits</h2>
+          <p><strong>Paragraph 3:</strong> The candidate positioning algorithm scans the DOM tree for container nodes such as paragraph tags (<code>&lt;p&gt;</code>), section wrappers, and block elements. Each container node is assigned a viability score based on its depth, visibility, font size, and text length.</p>
 
-        <!-- CTA EXCLUSION ZONE 1 TEST -->
-        <div class="cta-exclusion-box" id="cta-zone-1">
-          <span class="test-badge badge-exclusion">Test Target 2: Primary CTA Exclusion Zone</span>
-          <p style="font-size:0.95rem; color:#7f1d1d; margin-bottom:1rem; font-weight: 500;">
-            ⚠️ <strong>Exclusion Rule Test 1:</strong> Auto Ads MUST NOT inject banners directly touching or overlapping this high-intent download button.
-          </p>
-          <a href="#" class="download-btn">DOWNLOAD FREE RESOURCE PACK</a>
+          <p><strong>Paragraph 4:</strong> To prevent ad clutter and maintain user experience, Auto Ads enforces minimum distance rules (e.g. minimum vertical pixel gap or minimum paragraph gap between adjacent banners). On longer pages, this allows multiple banners to spawn progressively as the user scrolls.</p>
+
+          <!-- CTA EXCLUSION ZONE 1 TEST -->
+          <div class="cta-exclusion-box" id="cta-zone-1">
+            <span class="test-badge badge-exclusion">Test Target 2: Primary CTA Exclusion Zone</span>
+            <p style="font-size:0.95rem; color:#7f1d1d; margin-bottom:1rem; font-weight: 500;">
+              ⚠️ <strong>Exclusion Rule Test 1:</strong> Auto Ads MUST NOT inject banners directly touching or overlapping this high-intent download button.
+            </p>
+            <a href="#" class="download-btn">DOWNLOAD FREE RESOURCE PACK</a>
+          </div>
+
+          <h2>2. Mid-Article Candidate Evaluation</h2>
+          <p><strong>Paragraph 5:</strong> Following an exclusion zone (such as a call-to-action button or interactive element), the candidate scoring engine resumes evaluation after a buffer distance threshold. This paragraph tests whether the buffer distance is respected before inserting the next in-article unit.</p>
+
+          <p><strong>Paragraph 6:</strong> In-article ads perform best when surrounded by engaging content. If paragraph text is too short or sparse, the placement score drops, preventing low-quality ad placements on thin content blocks.</p>
+
+          <div class="content-img">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Content Illustration 1 (Tests Image Distance Exclusion)</span>
+          </div>
+
+          <p><strong>Paragraph 7:</strong> Images and embedded media elements also influence candidate placement scoring. Auto Ads evaluates the bounding rectangle of image containers to avoid overlapping captions or visual media.</p>
+
+          <p><strong>Paragraph 8:</strong> Continuous text blocks following an image provide a fresh set of insertion candidates. This ensures that in-article ads can be inserted at balanced intervals throughout the entire article lifecycle.</p>
+
+          <!-- MEDIA GALLERY TEST SECTION -->
+          <h2 id="gallery">3. Media Gallery & Grid Exclusion</h2>
+          <span class="test-badge badge-gallery">Test Target 3: Media Gallery Layout</span>
+          <p><strong>Paragraph 9:</strong> The gallery below tests how Auto Ads handles dense multi-column image layouts. In multi-column galleries, inserting full-width banners inside small item cells can break responsive page structure.</p>
+
+          <div class="image-gallery">
+            <div class="gallery-item">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 1
+            </div>
+            <div class="gallery-item">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 2
+            </div>
+            <div class="gallery-item">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 3
+            </div>
+            <div class="gallery-item">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 4
+            </div>
+            <div class="gallery-item">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 5
+            </div>
+            <div class="gallery-item">
+              <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 6
+            </div>
+          </div>
+
+          <p><strong>Paragraph 10:</strong> After passing the media gallery block, paragraph candidate evaluation resumes. This paragraph provides continuous content following the gallery grid.</p>
+
+          <!-- CTA EXCLUSION ZONE 2 TEST -->
+          <div class="cta-secondary-box" id="cta-zone-2">
+            <span class="test-badge badge-exclusion">Test Target 4: Secondary Action Exclusion Zone</span>
+            <p style="font-size:0.95rem; color:#14532d; margin-bottom:1rem; font-weight: 500;">
+              ⚠️ <strong>Exclusion Rule Test 2:</strong> Tests secondary action button exclusion zones.
+            </p>
+            <a href="#" class="action-btn">CLAIM SPECIAL OFFER NOW</a>
+          </div>
+
+          <h2>4. Article Conclusion & Scroll Depth</h2>
+          <p><strong>Paragraph 11:</strong> Near the end of long-form articles, Auto Ads algorithms evaluate bottom-of-page placements. Banners placed before conclusion sections often capture final user attention prior to footer navigation.</p>
+
+          <p><strong>Paragraph 12:</strong> This final paragraph completes the 12-paragraph in-article test suite. With a long continuous article body, the Auto Ads engine has maximum flexibility to test multi-banner insertion density and vertical spacing limits.</p>
+
         </div>
-
-        <h2>2. Mid-Article Candidate Evaluation</h2>
-        <p><strong>Paragraph 5:</strong> Following an exclusion zone (such as a call-to-action button or interactive element), the candidate scoring engine resumes evaluation after a buffer distance threshold. This paragraph tests whether the buffer distance is respected before inserting the next in-article unit.</p>
-
-        <p><strong>Paragraph 6:</strong> In-article ads perform best when surrounded by engaging content. If paragraph text is too short or sparse, the placement score drops, preventing low-quality ad placements on thin content blocks.</p>
-
-        <div class="content-img">
-          <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Content Illustration 1 (Tests Image Distance Exclusion)</span>
-        </div>
-
-        <p><strong>Paragraph 7:</strong> Images and embedded media elements also influence candidate placement scoring. Auto Ads evaluates the bounding rectangle of image containers to avoid overlapping captions or visual media.</p>
-
-        <p><strong>Paragraph 8:</strong> Continuous text blocks following an image provide a fresh set of insertion candidates. This ensures that in-article ads can be inserted at balanced intervals throughout the entire article lifecycle.</p>
-
-        <!-- MEDIA GALLERY TEST SECTION -->
-        <h2 id="gallery">3. Media Gallery & Grid Exclusion</h2>
-        <span class="test-badge badge-gallery">Test Target 3: Media Gallery Layout</span>
-        <p><strong>Paragraph 9:</strong> The gallery below tests how Auto Ads handles dense multi-column image layouts. In multi-column galleries, inserting full-width banners inside small item cells can break responsive page structure.</p>
-
-        <div class="image-gallery">
-          <div class="gallery-item">
-            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 1
-          </div>
-          <div class="gallery-item">
-            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 2
-          </div>
-          <div class="gallery-item">
-            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 3
-          </div>
-          <div class="gallery-item">
-            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 4
-          </div>
-          <div class="gallery-item">
-            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 5
-          </div>
-          <div class="gallery-item">
-            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 6
-          </div>
-        </div>
-
-        <p><strong>Paragraph 10:</strong> After passing the media gallery block, paragraph candidate evaluation resumes. This paragraph provides continuous content following the gallery grid.</p>
-
-        <!-- CTA EXCLUSION ZONE 2 TEST -->
-        <div class="cta-secondary-box" id="cta-zone-2">
-          <span class="test-badge badge-exclusion">Test Target 4: Secondary Action Exclusion Zone</span>
-          <p style="font-size:0.95rem; color:#14532d; margin-bottom:1rem; font-weight: 500;">
-            ⚠️ <strong>Exclusion Rule Test 2:</strong> Tests secondary action button exclusion zones.
-          </p>
-          <a href="#" class="action-btn">CLAIM SPECIAL OFFER NOW</a>
-        </div>
-
-        <h2>4. Article Conclusion & Scroll Depth</h2>
-        <p><strong>Paragraph 11:</strong> Near the end of long-form articles, Auto Ads algorithms evaluate bottom-of-page placements. Banners placed before conclusion sections often capture final user attention prior to footer navigation.</p>
-
-        <p><strong>Paragraph 12:</strong> This final paragraph completes the 12-paragraph in-article test suite. With a long continuous article body, the Auto Ads engine has maximum flexibility to test multi-banner insertion density and vertical spacing limits.</p>
       </article>
 
       <!-- SECTION 2: IN-FEED PLACEMENT TEST (6 CARDS) -->
