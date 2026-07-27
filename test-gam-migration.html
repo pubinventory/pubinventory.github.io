@@ -9,8 +9,10 @@
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0 auto; max-width: 800px; padding: 20px; }
         .test-section { border: 2px dashed #007bff; margin: 30px 0; padding: 20px; background-color: #f9f9f9; }
+        .test-instructions { background-color: #e9ecef; padding: 10px; margin-top: 15px; font-size: 0.9em; border-left: 4px solid #007bff; }
         .content-block { margin-bottom: 40px; }
         h1, h2 { color: #333; }
+        code { background-color: #ddd; padding: 2px 4px; border-radius: 3px; }
     </style>
 </head>
 <body>
@@ -18,7 +20,6 @@
     <h1>GAM Migration End-to-End Test Page</h1>
     <p>This page is configured with <strong>client=ca-pub-6851705954091379</strong> and <strong>debug_experiment_id=95395794</strong> to force the GAM migration branch.</p>
 
-    <!-- Massive text block to trigger Auto Ads Placement -->
     <div class="content-block">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p>
@@ -34,6 +35,10 @@
              data-ad-slot="1111111111"
              data-ad-channel="ChannelA+ChannelB"
              data-ad-format="auto"></ins>
+        <div class="test-instructions">
+            <strong>How to verify:</strong> Look for a GPT request to <code>/gampad/ads</code>. Because the format is <code>auto</code>, GPT should define it with the unified <code>'auto'</code> size. <br><br>
+            <em>(Control Branch Test):</em> If you change the debug ID to the control branch, this should fall back to an AdSense request. Check the payload to ensure the custom channel was appended safely with the existing plus separator: <code>channel=ChannelA+ChannelB+[MIGRATION_CONTROL_CHANNEL]</code>.
+        </div>
     </div>
 
     <div class="content-block">
@@ -49,6 +54,10 @@
              data-ad-client="ca-pub-6851705954091379"
              data-ad-slot="2222222222"
              data-ad-channel="ChannelC,ChannelD"></ins>
+        <div class="test-instructions">
+            <strong>How to verify:</strong> Look for a GPT request to <code>/gampad/ads</code>. Because fixed pixel dimensions are resolved, they should map directly to the GPT size parameter (e.g., <code>sz=300x250</code> or <code>prev_iu_szs=300x250</code>).<br><br>
+            <em>(Control Branch Test):</em> If testing the control branch, the AdSense request should correctly append using the comma separator: <code>channel=ChannelC,ChannelD,[MIGRATION_CONTROL_CHANNEL]</code>.
+        </div>
     </div>
 
     <div class="content-block">
@@ -65,6 +74,9 @@
              data-ad-client="ca-pub-6851705954091379"
              data-ad-slot="3333333333"
              data-ad-format="fluid"></ins>
+        <div class="test-instructions">
+            <strong>How to verify:</strong> Look for a GPT request to <code>/gampad/ads</code>. AdSense fluid sizes map to the unified <code>'auto'</code> size in GPT.
+        </div>
     </div>
 
     <!-- TEST 4 -->
@@ -75,6 +87,9 @@
              data-ad-client="ca-pub-6851705954091379"
              data-ad-slot="4444444444"
              data-ad-format="autorelaxed"></ins>
+        <div class="test-instructions">
+            <strong>How to verify:</strong> Look for a GPT request to <code>/gampad/ads</code>. Legacy <code>autorelaxed</code> format strings map to the unified <code>'auto'</code> size in GPT.
+        </div>
     </div>
 
     <div class="content-block">
@@ -89,6 +104,9 @@
         <ins class="adsbygoogle"
              data-ad-client="ca-pub-6851705954091379"
              data-ad-slot="5555555555"></ins>
+        <div class="test-instructions">
+            <strong>How to verify:</strong> Look for a GPT request to <code>/gampad/ads</code>. Because no format is provided, the AdSense loader dynamically computes the width and height based on the container size and should map it directly via <code>googletag.defineSlot(path, [width, height], divId)</code>.
+        </div>
     </div>
 
     <div class="content-block">
@@ -106,6 +124,10 @@
              data-ad-slot="6666666666"
              data-ad-channel="UnsupportedAFPChannel"
              data-ad-format="auto"></ins>
+        <div class="test-instructions">
+            <strong>How to verify:</strong> Because the <code>data-ad-host</code> attribute marks this as an AdSense For Platforms (AFP) ad, it is unsupported and will bypass GAM migration. <br><br>
+            Look for an AdSense request (<code>/pagead/ads</code>) instead of GAM. In its payload, ensure the variant channel is successfully appended: <code>channel=UnsupportedAFPChannel+[MIGRATION_VARIANT_CHANNEL]</code>.
+        </div>
     </div>
 
     <div class="content-block">
@@ -120,6 +142,14 @@
         <h2>7. Delayed / Lazy Loaded Ad Unit with Privacy Settings</h2>
         <p>This slot is injected after a 2-second timeout.</p>
         <ins id="slot-7-container"></ins>
+        <div class="test-instructions">
+            <strong>How to verify:</strong> Wait 2 seconds. A new GPT request (<code>/gampad/ads</code>) should fire. Check its Payload tab to confirm the privacy attributes correctly mapped to GPT equivalents:
+            <ul>
+                <li><code>rdp=1</code> (from data-restrict-data-processing)</li>
+                <li><code>tfcd=1</code> (from data-tag-for-age-treatment)</li>
+                <li><code>npa=1</code> (from requestNonPersonalizedAds)</li>
+            </ul>
+        </div>
     </div>
 
     <!-- Initialization Scripts -->
@@ -130,7 +160,7 @@
              (adsbygoogle = window.adsbygoogle || []).push({});
          });
 
-         // 3. Delayed injection to guarantee GPT is initialized BEFORE this slot is processed
+         // 2. Delayed injection to guarantee GPT is initialized BEFORE this slot is processed
          setTimeout(() => {
              // Apply global AdSense privacy setting
              (adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;
