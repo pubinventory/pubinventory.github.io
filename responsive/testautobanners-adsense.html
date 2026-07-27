@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Auto Ads Comprehensive Test Site</title>
+
+  <!-- Load AdSense library -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356814494732193"
+       crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --primary: #2563eb;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --cta: #dc2626;
+      --cta-hover: #b91c1c;
+      --secondary-cta: #16a34a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background-color: var(--bg) !important; color: var(--text) !important; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; line-height: 1.7; font-size: 16px; }
+
+    /* Header Navigation */
+    header.sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    }
+    header.sticky-nav .logo { font-size: 1.3rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+    header.sticky-nav nav a { margin-left: 1.25rem; color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    header.sticky-nav nav a:hover { color: var(--primary); }
+
+    /* Single Column Layout */
+    .container { max-width: 840px; margin: 2.5rem auto; padding: 0 1.25rem; }
+
+    /* Badges */
+    .test-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-article { background: #dbeafe; color: #1e40af; }
+    .badge-feed { background: #dcfce7; color: #166534; }
+    .badge-exclusion { background: #fee2e2; color: #991b1b; }
+    .badge-form { background: #fef3c7; color: #92400e; }
+    .badge-gallery { background: #f3e8ff; color: #6b21a8; }
+
+    /* Article Card */
+    article.test-article {
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+      margin-bottom: 2.5rem;
+    }
+    article.test-article h1 { font-size: 2.3rem; font-weight: 800; margin-bottom: 0.75rem; line-height: 1.25; color: #0f172a; letter-spacing: -0.5px; }
+    
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    article.test-article h2 { font-size: 1.5rem; font-weight: 700; margin: 2.25rem 0 1rem; color: #0f172a; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.5rem; }
+    article.test-article h3 { font-size: 1.2rem; font-weight: 600; margin: 1.5rem 0 0.75rem; color: #334155; }
+    article.test-article p { margin-bottom: 1.5rem; color: #334155; font-size: 1.05rem; }
+
+    /* Media Illustrations */
+    .hero-img {
+      width: 100%;
+      height: 340px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #1d4ed8;
+      margin-bottom: 2rem;
+    }
+    .hero-img svg { width: 64px; height: 64px; margin-bottom: 0.5rem; fill: #2563eb; }
+
+    .content-img {
+      width: 100%;
+      height: 240px;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      margin: 1.75rem 0;
+      font-weight: 500;
+    }
+    .content-img svg { width: 48px; height: 48px; fill: #94a3b8; margin-bottom: 0.4rem; }
+
+    /* CTA Exclusion Boxes */
+    .cta-exclusion-box {
+      background: #fef2f2;
+      border: 2px dashed #fca5a5;
+      padding: 2rem;
+      border-radius: 10px;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .cta-secondary-box {
+      background: #f0fdf4;
+      border: 2px dashed #86efac;
+      padding: 2rem;
+      border-radius: 10px;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .download-btn {
+      display: inline-block;
+      background: var(--cta);
+      color: white;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
+      transition: all 0.2s ease;
+    }
+    .download-btn:hover { background: var(--cta-hover); transform: translateY(-1px); }
+    
+    .action-btn {
+      display: inline-block;
+      background: var(--secondary-cta);
+      color: white;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+    }
+
+    /* Gallery Grid */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    @media (max-width: 600px) { .image-gallery { grid-template-columns: 1fr; } }
+    .gallery-item {
+      height: 150px;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .gallery-item svg { width: 32px; height: 32px; fill: #cbd5e1; margin-bottom: 0.3rem; }
+
+    /* In-Feed Catalog (6 Cards) */
+    section.feed-section {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+      margin-bottom: 2.5rem;
+    }
+    .feed-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .feed-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feed-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+    .feed-card .card-thumb {
+      height: 130px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    .feed-card .card-thumb svg { width: 36px; height: 36px; fill: #94a3b8; margin-bottom: 0.25rem; }
+    .feed-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; color: #0f172a; }
+    .feed-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* Interactive Form */
+    section.form-section {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+      margin-bottom: 2.5rem;
+    }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem; color: #0f172a; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #ffffff;
+      color: var(--text);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+    .submit-btn {
+      background: var(--primary);
+      color: white;
+      padding: 0.95rem 2rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Light Footer */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-top: 4rem;
+      font-size: 0.95rem;
+    }
+    footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAVBAR -->
+  <header class="sticky-nav">
+    <div class="logo">TechPulse Magazine</div>
+    <nav>
+      <a href="#article">Article</a>
+      <a href="#cta-zone-1">Download Zone</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#feed">Resource Feed</a>
+      <a href="#form">Survey Form</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main>
+
+      <!-- SECTION 1: IN-ARTICLE PLACEMENT TEST -->
+      <article class="test-article" id="article">
+        <span class="test-badge badge-article">Test Target 1: In-Article Placements (12 Paragraphs)</span>
+        <h1>Comprehensive Guide to Modern Auto Ads Placement & Layout Analysis</h1>
+
+        <div class="article-meta">
+          <span>By <strong>Sarah Jenkins</strong></span>
+          <span>•</span>
+          <span>Published July 27, 2026</span>
+          <span>•</span>
+          <span>8 min read</span>
+        </div>
+
+        <div class="hero-img">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z"/></svg>
+          <span style="font-weight: 600; font-size: 1.1rem;">Featured Article Hero Illustration</span>
+        </div>
+
+        <p><strong>Paragraph 1:</strong> Auto Ads uses automated layout discovery algorithms to identify suitable placements for responsive display banners, native in-feed units, and anchor ads without requiring manual ad slot tags. This extended article tests multi-banner insertion density across deep-scroll pages.</p>
+
+        <p><strong>Paragraph 2:</strong> In standard editorial sites like <em>preparedsurvivorguide.com</em> and <em>retirewhiz.com</em>, long articles contain continuous blocks of text separated by headings and sub-sections. The placement engine evaluates the text-to-code ratio and calculates optimal vertical distances between potential ad candidates.</p>
+
+        <h2>1. Candidate Placement Discovery & Density Limits</h2>
+        <p><strong>Paragraph 3:</strong> The candidate positioning algorithm scans the DOM tree for container nodes such as paragraph tags (<code>&lt;p&gt;</code>), section wrappers, and block elements. Each container node is assigned a viability score based on its depth, visibility, font size, and text length.</p>
+
+        <p><strong>Paragraph 4:</strong> To prevent ad clutter and maintain user experience, Auto Ads enforces minimum distance rules (e.g. minimum vertical pixel gap or minimum paragraph gap between adjacent banners). On longer pages, this allows multiple banners to spawn progressively as the user scrolls.</p>
+
+        <!-- CTA EXCLUSION ZONE 1 TEST -->
+        <div class="cta-exclusion-box" id="cta-zone-1">
+          <span class="test-badge badge-exclusion">Test Target 2: Primary CTA Exclusion Zone</span>
+          <p style="font-size:0.95rem; color:#7f1d1d; margin-bottom:1rem; font-weight: 500;">
+            ⚠️ <strong>Exclusion Rule Test 1:</strong> Auto Ads MUST NOT inject banners directly touching or overlapping this high-intent download button.
+          </p>
+          <a href="#" class="download-btn">DOWNLOAD FREE RESOURCE PACK</a>
+        </div>
+
+        <h2>2. Mid-Article Candidate Evaluation</h2>
+        <p><strong>Paragraph 5:</strong> Following an exclusion zone (such as a call-to-action button or interactive element), the candidate scoring engine resumes evaluation after a buffer distance threshold. This paragraph tests whether the buffer distance is respected before inserting the next in-article unit.</p>
+
+        <p><strong>Paragraph 6:</strong> In-article ads perform best when surrounded by engaging content. If paragraph text is too short or sparse, the placement score drops, preventing low-quality ad placements on thin content blocks.</p>
+
+        <div class="content-img">
+          <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Content Illustration 1 (Tests Image Distance Exclusion)</span>
+        </div>
+
+        <p><strong>Paragraph 7:</strong> Images and embedded media elements also influence candidate placement scoring. Auto Ads evaluates the bounding rectangle of image containers to avoid overlapping captions or visual media.</p>
+
+        <p><strong>Paragraph 8:</strong> Continuous text blocks following an image provide a fresh set of insertion candidates. This ensures that in-article ads can be inserted at balanced intervals throughout the entire article lifecycle.</p>
+
+        <!-- MEDIA GALLERY TEST SECTION -->
+        <h2 id="gallery">3. Media Gallery & Grid Exclusion</h2>
+        <span class="test-badge badge-gallery">Test Target 3: Media Gallery Layout</span>
+        <p><strong>Paragraph 9:</strong> The gallery below tests how Auto Ads handles dense multi-column image layouts. In multi-column galleries, inserting full-width banners inside small item cells can break responsive page structure.</p>
+
+        <div class="image-gallery">
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 1
+          </div>
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 2
+          </div>
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 3
+          </div>
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 4
+          </div>
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 5
+          </div>
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 6
+          </div>
+        </div>
+
+        <p><strong>Paragraph 10:</strong> After passing the media gallery block, paragraph candidate evaluation resumes. This paragraph provides continuous content following the gallery grid.</p>
+
+        <!-- CTA EXCLUSION ZONE 2 TEST -->
+        <div class="cta-secondary-box" id="cta-zone-2">
+          <span class="test-badge badge-exclusion">Test Target 4: Secondary Action Exclusion Zone</span>
+          <p style="font-size:0.95rem; color:#14532d; margin-bottom:1rem; font-weight: 500;">
+            ⚠️ <strong>Exclusion Rule Test 2:</strong> Tests secondary action button exclusion zones.
+          </p>
+          <a href="#" class="action-btn">CLAIM SPECIAL OFFER NOW</a>
+        </div>
+
+        <h2>4. Article Conclusion & Scroll Depth</h2>
+        <p><strong>Paragraph 11:</strong> Near the end of long-form articles, Auto Ads algorithms evaluate bottom-of-page placements. Banners placed before conclusion sections often capture final user attention prior to footer navigation.</p>
+
+        <p><strong>Paragraph 12:</strong> This final paragraph completes the 12-paragraph in-article test suite. With a long continuous article body, the Auto Ads engine has maximum flexibility to test multi-banner insertion density and vertical spacing limits.</p>
+      </article>
+
+      <!-- SECTION 2: IN-FEED PLACEMENT TEST (6 CARDS) -->
+      <section class="feed-section" id="feed">
+        <span class="test-badge badge-feed">Test Target 5: In-Feed Catalog Grid (6 Items)</span>
+        <h2 style="font-weight: 800; color: #0f172a;">Software & Resource Feed Catalog</h2>
+        <p style="color:var(--text-muted); font-size:0.95rem;">
+          Tests in-feed Auto Ads insertions across a 6-item card catalog stream (inspired by <em>apkfunny.com</em> / <em>buzzsight.co</em>).
+        </p>
+
+        <div class="feed-grid">
+          <div class="feed-card">
+            <div class="card-thumb">
+              <svg viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>App Icon 1
+            </div>
+            <h4>Utility Tool A</h4>
+            <p>Productivity & utilities suite for desktop.</p>
+          </div>
+          <div class="feed-card">
+            <div class="card-thumb">
+              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>App Icon 2
+            </div>
+            <h4>Security Guard B</h4>
+            <p>System security and optimization tools.</p>
+          </div>
+          <div class="feed-card">
+            <div class="card-thumb">
+              <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>App Icon 3
+            </div>
+            <h4>Media Player C</h4>
+            <p>High definition video playback software.</p>
+          </div>
+          <div class="feed-card">
+            <div class="card-thumb">
+              <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>App Icon 4
+            </div>
+            <h4>Game Engine D</h4>
+            <p>2D and 3D game creation toolkit.</p>
+          </div>
+          <div class="feed-card">
+            <div class="card-thumb">
+              <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>App Icon 5
+            </div>
+            <h4>Code Editor E</h4>
+            <p>Lightweight code editor for web developers.</p>
+          </div>
+          <div class="feed-card">
+            <div class="card-thumb">
+              <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 21l3.68-1.04C9.48 20.57 10.71 21 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/></svg>App Icon 6
+            </div>
+            <h4>Graphic Suite F</h4>
+            <p>Vector drawing and photo editing suite.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: EXTENDED FORM EXCLUSION ZONE TEST -->
+      <section class="form-section" id="form">
+        <span class="test-badge badge-form">Test Target 6: Interactive Form & Survey Exclusion</span>
+        <h2 style="font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Reader Feedback & Survey Form</h2>
+        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;">
+          Tests form field exclusion logic (inspired by <em>metroopinion.com</em>). Auto Ads should refrain from placing ad units between closely spaced interactive form fields.
+        </p>
+
+        <form onsubmit="event.preventDefault();">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="Enter first name">
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Enter last name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter email address">
+          </div>
+          <div class="form-group">
+            <label for="device">Primary Testing Device</label>
+            <select id="device">
+              <option>Mobile Smartphone (iOS / Android)</option>
+              <option>Tablet Device</option>
+              <option>Desktop Browser</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="comments">Detailed Feedback</label>
+            <textarea id="comments" rows="4" placeholder="Describe layout observation or ad placement behavior..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Submit Reader Survey</button>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 TechPulse Magazine • In-Page Auto Ads Test Suite. Built for In-Article, In-Feed & Exclusion Zone Testing.</p>
+    <p style="margin-top:0.75rem;"><a href="#article">Back to Top</a></p>
+  </footer>
+
+</body>
+</html>
