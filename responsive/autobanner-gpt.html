@@ -33,7 +33,7 @@
   }
   </script>
 
-  <!-- Jekyll Minima CSS & Google Fonts (Matching charmander-gpt.html) -->
+  <!-- Jekyll Minima CSS & Google Fonts -->
   <link rel="stylesheet" href="/assets/main.css">
   <link type="application/atom+xml" rel="alternate" href="https://pubinventory.github.io/feed.xml" title="Pub Inventory's Test Site">
   <link type="text/css" href="//fonts.googleapis.com/css?family=Google%20Symbols%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" rel="stylesheet">
@@ -221,4 +221,266 @@
     }
     .form-group { margin-bottom: 1.25rem; }
     .form-group label { display: block; font-weight: 600; margin-bottom: 0.4rem; font-size: 0.95rem; color: #111; }
-    .form-group input, .form-group select
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: #ffffff;
+      color: #111;
+    }
+    .submit-btn {
+      background: #e65100;
+      color: white;
+      padding: 0.85rem 2rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .subtle-test-label {
+      font-size: 0.78rem;
+      color: #888888;
+      font-style: normal;
+      display: block;
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">Pub Inventory's Test Site</a>
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger">
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+          </svg>
+        </span>
+      </label>
+      <div class="trigger">
+        <a class="page-link" href="#article">Article</a>
+        <a class="page-link" href="#feed">Feed</a>
+        <a class="page-link" href="#form">Survey</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="page-content" aria-label="Content" style="height: auto !important;">
+  <div class="wrapper" style="height: auto !important;">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting" style="height: auto !important;" id="article">
+      <header class="post-header">
+        <span class="test-badge badge-article">Test Target 1: In-Article Placements (12 Paragraphs)</span>
+        <h1 class="post-title p-name" itemprop="name headline">Comprehensive Guide to Modern Auto Ads Placement & Layout Analysis</h1>
+        <p class="post-meta">
+          Published <time class="dt-published" datetime="2026-07-27" itemprop="datePublished">Jul 27, 2026</time> • <span itemprop="author">ASFE pubinv</span>
+        </p>
+      </header>
+
+      <div class="post-content e-content" itemprop="articleBody" style="height: auto !important;">
+
+        <div class="hero-img">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z"/></svg>
+          <span style="font-weight: 600; font-size: 1.1rem;">Featured Article Hero Illustration</span>
+        </div>
+
+        <p><strong>Paragraph 1:</strong> Auto Ads uses automated layout discovery algorithms to identify suitable placements for responsive display banners, native in-feed units, and anchor ads without requiring manual ad slot tags. This extended article tests multi-banner insertion density across deep-scroll pages.</p>
+
+        <p><strong>Paragraph 2:</strong> In standard editorial sites like <em>preparedsurvivorguide.com</em> and <em>retirewhiz.com</em>, long articles contain continuous blocks of text separated by headings and sub-sections. The placement engine evaluates the text-to-code ratio and calculates optimal vertical distances between potential ad candidates.</p>
+
+        <h2>1. Candidate Placement Discovery & Density Limits</h2>
+        <p><strong>Paragraph 3:</strong> The candidate positioning algorithm scans the DOM tree for container nodes such as paragraph tags (<code>&lt;p&gt;</code>), section wrappers, and block elements. Each container node is assigned a viability score based on its depth, visibility, font size, and text length.</p>
+
+        <p><strong>Paragraph 4:</strong> To prevent ad clutter and maintain user experience, Auto Ads enforces minimum distance rules (e.g. minimum vertical pixel gap or minimum paragraph gap between adjacent banners). On longer pages, this allows multiple banners to spawn progressively as the user scrolls.</p>
+
+        <!-- CTA EXCLUSION ZONE 1 TEST -->
+        <div class="cta-exclusion-box" id="cta-zone-1">
+          <span class="test-badge badge-exclusion">Test Target 2: Primary CTA Exclusion Zone</span>
+          <p style="font-size:0.95rem; color:#7f1d1d; margin-bottom:1rem; font-weight: 500;">
+            ⚠️ <strong>Exclusion Rule Test 1:</strong> Auto Ads MUST NOT inject banners directly touching or overlapping this high-intent download button.
+          </p>
+          <a href="#" class="download-btn">DOWNLOAD FREE RESOURCE PACK</a>
+        </div>
+
+        <h2>2. Mid-Article Candidate Evaluation</h2>
+        <p><strong>Paragraph 5:</strong> Following an exclusion zone (such as a call-to-action button or interactive element), the candidate scoring engine resumes evaluation after a buffer distance threshold. This paragraph tests whether the buffer distance is respected before inserting the next in-article unit.</p>
+
+        <p><strong>Paragraph 6:</strong> In-article ads perform best when surrounded by engaging content. If paragraph text is too short or sparse, the placement score drops, preventing low-quality ad placements on thin content blocks.</p>
+
+        <div class="content-img">
+          <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Content Illustration 1 (Tests Image Distance Exclusion)</span>
+        </div>
+
+        <p><strong>Paragraph 7:</strong> Images and embedded media elements also influence candidate placement scoring. Auto Ads evaluates the bounding rectangle of image containers to avoid overlapping captions or visual media.</p>
+
+        <p><strong>Paragraph 8:</strong> Continuous text blocks following an image provide a fresh set of insertion candidates. This ensures that in-article ads can be inserted at balanced intervals throughout the entire article lifecycle.</p>
+
+        <!-- MEDIA GALLERY TEST SECTION -->
+        <h2 id="gallery">3. Media Gallery & Grid Exclusion</h2>
+        <span class="test-badge badge-gallery">Test Target 3: Media Gallery Layout</span>
+        <p><strong>Paragraph 9:</strong> The gallery below tests how Auto Ads handles dense multi-column image layouts. In multi-column galleries, inserting full-width banners inside small item cells can break responsive page structure.</p>
+
+        <div class="image-gallery">
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 1
+          </div>
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 2
+          </div>
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 3
+          </div>
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 4
+          </div>
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 5
+          </div>
+          <div class="gallery-item">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>Gallery Photo 6
+          </div>
+        </div>
+
+        <p><strong>Paragraph 10:</strong> After passing the media gallery block, paragraph candidate evaluation resumes. This paragraph provides continuous content following the gallery grid.</p>
+
+        <!-- CTA EXCLUSION ZONE 2 TEST -->
+        <div class="cta-secondary-box" id="cta-zone-2">
+          <span class="test-badge badge-exclusion">Test Target 4: Secondary Action Exclusion Zone</span>
+          <p style="font-size:0.95rem; color:#14532d; margin-bottom:1rem; font-weight: 500;">
+            ⚠️ <strong>Exclusion Rule Test 2:</strong> Tests secondary action button exclusion zones.
+          </p>
+          <a href="#" class="action-btn">CLAIM SPECIAL OFFER NOW</a>
+        </div>
+
+        <h2>4. Article Conclusion & Scroll Depth</h2>
+        <p><strong>Paragraph 11:</strong> Near the end of long-form articles, Auto Ads algorithms evaluate bottom-of-page placements. Banners placed before conclusion sections often capture final user attention prior to footer navigation.</p>
+
+        <p><strong>Paragraph 12:</strong> This final paragraph completes the 12-paragraph in-article test suite. With a long continuous article body, the Auto Ads engine has maximum flexibility to test multi-banner insertion density and vertical spacing limits.</p>
+
+      </div>
+    </article>
+
+    <!-- SECTION 2: IN-FEED PLACEMENT TEST (6 CARDS) -->
+    <section class="feed-section" id="feed">
+      <span class="test-badge badge-feed">Test Target 5: In-Feed Catalog Grid (6 Items)</span>
+      <h2 style="font-weight: 800; color: #111;">Software & Resource Feed Catalog</h2>
+      <p style="color:#666; font-size:0.95rem;">
+        Tests in-feed Auto Ads insertions across a 6-item card catalog stream.
+      </p>
+
+      <div class="feed-grid">
+        <div class="feed-card">
+          <div class="card-thumb">
+            <svg viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>App Icon 1
+          </div>
+          <h4>Utility Tool A</h4>
+          <p>Productivity & utilities suite for desktop.</p>
+        </div>
+        <div class="feed-card">
+          <div class="card-thumb">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>App Icon 2
+          </div>
+          <h4>Security Guard B</h4>
+          <p>System security and optimization tools.</p>
+        </div>
+        <div class="feed-card">
+          <div class="card-thumb">
+            <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>App Icon 3
+          </div>
+          <h4>Media Player C</h4>
+          <p>High definition video playback software.</p>
+        </div>
+        <div class="feed-card">
+          <div class="card-thumb">
+            <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>App Icon 4
+          </div>
+          <h4>Game Engine D</h4>
+          <p>2D and 3D game creation toolkit.</p>
+        </div>
+        <div class="feed-card">
+          <div class="card-thumb">
+            <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>App Icon 5
+          </div>
+          <h4>Code Editor E</h4>
+          <p>Lightweight code editor for web developers.</p>
+        </div>
+        <div class="feed-card">
+          <div class="card-thumb">
+            <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 21l3.68-1.04C9.48 20.57 10.71 21 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/></svg>App Icon 6
+          </div>
+          <h4>Graphic Suite F</h4>
+          <p>Vector drawing and photo editing suite.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: EXTENDED FORM EXCLUSION ZONE TEST -->
+    <section class="form-section" id="form">
+      <span class="test-badge badge-form">Test Target 6: Interactive Form & Survey Exclusion</span>
+      <h2 style="font-weight: 800; color: #111; margin-bottom: 0.5rem;">Reader Feedback & Survey Form</h2>
+      <p style="color:#666; font-size:0.95rem; margin-bottom:1.5rem;">
+        Tests form field exclusion logic. Auto Ads should refrain from placing ad units between closely spaced interactive form fields.
+      </p>
+
+      <form onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Enter first name">
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Enter last name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter email address">
+        </div>
+        <div class="form-group">
+          <label for="device">Primary Testing Device</label>
+          <select id="device">
+            <option>Mobile Smartphone (iOS / Android)</option>
+            <option>Tablet Device</option>
+            <option>Desktop Browser</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="comments">Detailed Feedback</label>
+          <textarea id="comments" rows="4" placeholder="Describe layout observation or ad placement behavior..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit Reader Survey</button>
+      </form>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  <div class="wrapper">
+    <h2 class="footer-heading">Pub Inventory's Test Site</h2>
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Pub Inventory's Test Site</li>
+        </ul>
+      </div>
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list"></ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>&copy; 2026 TechPulse Magazine • In-Page Auto Ads Test Suite. Built for In-Article, In-Feed & Exclusion Zone Testing.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
