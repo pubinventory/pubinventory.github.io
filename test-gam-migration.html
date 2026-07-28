@@ -20,50 +20,56 @@
     <h1>GAM Migration End-to-End Test Page</h1>
     <p>This page is configured with <strong>client=ca-pub-6851705954091379</strong> and <strong>debug_experiment_id=95395794</strong> to force the GAM migration branch.</p>
 
+    <!-- Massive text block to trigger Auto Ads Placement & Ad Intents -->
     <div class="content-block">
+        <h2>Ad Intents & Auto Ads Canvas</h2>
+        <!-- Commercial intents to trigger chips, links, and anchors -->
+        <p>If you are looking to upgrade your mobile device, you might want to consider the <strong>iPhone 12 Mini</strong> or the newer <strong>Apple iPhone 14</strong>. We have a great selection if you want to <strong>Shop for high-end smartphones</strong>. Many people prefer these over other <strong>expensive iPhone models</strong> because of their camera quality.</p>
+        
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <!-- Vignettes trigger when users click links to navigate away from the page -->
+        <p>Vignettes do not appear on page load. Click this <a href="https://example.com">navigation link</a> to trigger the interstitial ad.</p>
+        
         <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p>
+        
         <p>Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris, sed placerat ipsum urna sed risus. In convallis tellus a mauris. Curabitur non elit ut libero tristique sodales. Mauris a lacus. Donec mattis semper leo. In hac habitasse platea dictumst. Vivamus facilisis diam velit gravida urna. Vestibulum in dictum non, consectetur non, pulvinar in, orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
     </div>
 
-    <!-- TEST 1 -->
+    <!-- TEST 1: Combining Auto Format, '+' Channels, and Expansion Disabled -->
     <div class="test-section">
-        <h2>1. Supported: Auto Format & '+' Separated Channels</h2>
+        <h2>1. Supported: Auto Format, '+' Channels, & Expansion Disabled</h2>
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-6851705954091379"
              data-ad-slot="7763071372"
              data-ad-channel="ChannelA+ChannelB"
-             data-ad-format="auto"></ins>
+             data-ad-format="auto"
+             data-full-width-responsive="false"></ins>
         <div class="test-instructions">
-            <strong>How to verify:</strong> Look for a GPT request to <code>/gampad/ads</code>. Because the format is <code>auto</code>, GPT should define it with the unified <code>'auto'</code> size. <br><br>
-            <em>(Control Branch Test):</em> If you change the debug ID to the control branch, this should fall back to an AdSense request. Check the payload to ensure the custom channel was appended safely with the existing plus separator: <code>channel=ChannelA+ChannelB+[MIGRATION_CONTROL_CHANNEL]</code>.
+            <strong>How to verify:</strong> Look for a GPT request to <code>/gampad/ads</code>. 
+            GPT should define it with <code>'auto'</code> size. <code>adExpansion: { enabled: false }</code> should be applied. 
+            <br><br><em>(Control Branch Test):</em> If debug ID is changed to control, the AdSense request correctly appends <code>channel=ChannelA+ChannelB+[MIGRATION_CONTROL_CHANNEL]</code>.
+        </div>
+    </div>
+
+    <!-- TEST 2: Combining Percentage Size and ',' Separated Channels -->
+    <div class="test-section">
+        <h2>2. Supported: % Inline Size & ',' Separated Channels</h2>
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:50%;height:250px"
+             data-ad-client="ca-pub-6851705954091379"
+             data-ad-slot="7542625238"
+             data-ad-channel="ChannelC,ChannelD"></ins>
+        <div class="test-instructions">
+            <strong>How to verify:</strong> Look for a GPT request. The <code>sz</code> or <code>prev_iu_szs</code> parameter should reflect the computed pixel width (e.g. 50% of your screen width). 
+            <br><br><em>(Control Branch Test):</em> Appends <code>channel=ChannelC,ChannelD,[MIGRATION_CONTROL_CHANNEL]</code> safely using the comma separator.
         </div>
     </div>
 
     <div class="content-block">
         <p>Macenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. In auctor lobortis lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Vestibulum ullamcorper mauris at ligula. Fusce fermentum. Nullam cursus lacinia erat. Praesent blandit laoreet nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In nisi justo, pellentesque non, scelerisque sed, venenatis nec, massa. Aenean vel est.</p>
         <p>Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede.</p>
-    </div>
-
-    <!-- TEST 2 -->
-    <div class="test-section">
-        <h2>2. Supported: Fixed Size & ',' Separated Channels</h2>
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:300px;height:250px"
-             data-ad-client="ca-pub-6851705954091379"
-             data-ad-slot="7542625238"
-             data-ad-channel="ChannelC,ChannelD"></ins>
-        <div class="test-instructions">
-            <strong>How to verify:</strong> Look for a GPT request to <code>/gampad/ads</code>. Because fixed pixel dimensions are resolved, they should map directly to the GPT size parameter (e.g., <code>sz=300x250</code> or <code>prev_iu_szs=300x250</code>).<br><br>
-            <em>(Control Branch Test):</em> If testing the control branch, the AdSense request should correctly append using the comma separator: <code>channel=ChannelC,ChannelD,[MIGRATION_CONTROL_CHANNEL]</code>.
-        </div>
-    </div>
-
-    <div class="content-block">
-        <p>Ut orci diam, convallis eget, accumsan ut, rhoncus eu, neque. Cras vitae ligula eu est rhoncus elementum. In vehicula imperdiet odio. Etiam scelerisque placerat lorem. Mauris feugiat metus eget est. Nam at leo. Curabitur vel metus et nisl suscipit dignissim. Pellentesque mattis. Vestibulum suscipit cursus velit. Pellentesque fringilla convallis lacus.</p>
-        <p>Suspendisse potenti. Mauris congue elementum leo. Aliquam nec enim. Sed eu ipsum eu est sodales sodales. Maecenas iaculis neque in eros. Aenean tincidunt aliquet nunc. Nunc et dui quis velit pretium placerat. Aenean faucibus dui tristique tortor. Quisque a mauris nec metus auctor feugiat.</p>
-        <p>Cras in metus sed lectus cursus congue. Integer a nulla in mi elementum faucibus. Phasellus elementum massa pellentesque enim. Pellentesque id nulla nec justo ultrices vulputate. Morbi varius, nulla at aliquet hendrerit, neque lectus cursus ligula, non feugiat lorem dui sed velit. Sed id eros vel sapien sagittis pulvinar.</p>
     </div>
 
     <!-- TEST 3 -->
@@ -75,7 +81,7 @@
              data-ad-slot="6693532286"
              data-ad-format="fluid"></ins>
         <div class="test-instructions">
-            <strong>How to verify:</strong> Look for a GPT request to <code>/gampad/ads</code>. AdSense fluid sizes map to the unified <code>'auto'</code> size in GPT.
+            <strong>How to verify:</strong> GPT request maps AdSense fluid size to the unified <code>'auto'</code> size in GPT.
         </div>
     </div>
 
@@ -88,14 +94,8 @@
              data-ad-slot="5000488300"
              data-ad-format="autorelaxed"></ins>
         <div class="test-instructions">
-            <strong>How to verify:</strong> Look for a GPT request to <code>/gampad/ads</code>. Legacy <code>autorelaxed</code> format strings map to the unified <code>'auto'</code> size in GPT.
+            <strong>How to verify:</strong> GPT request maps Legacy <code>autorelaxed</code> format strings to the unified <code>'auto'</code> size in GPT.
         </div>
-    </div>
-
-    <div class="content-block">
-        <p>Mauris sed libero. Suspendisse facilisis nulla in lacinia laoreet, lorem velit accumsan velit, vel mattis libero nisl et sem. In tristique nunc nec orci. Vivamus sapien. Mauris diam quam, porttitor ut, tristique vitae, convallis nec, diam. Suspendisse potenti. Nam a sem vitae felis mollis iaculis.</p>
-        <p>Aliquam erat volutpat. Fusce euismod consequat ante. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque sed dolor. Aliquam congue fermentum nisl. Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod in, auctor ut, ligula.</p>
-        <p>Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac, lorem. Vestibulum sed ante. Donec sagittis euismod purus. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
     </div>
 
     <!-- TEST 5 -->
@@ -105,43 +105,58 @@
              data-ad-client="ca-pub-6851705954091379"
              data-ad-slot="1441205607"></ins>
         <div class="test-instructions">
-            <strong>How to verify:</strong> Look for a GPT request to <code>/gampad/ads</code>. Because no format is provided, the AdSense loader dynamically computes the width and height based on the container size and should map it directly via <code>googletag.defineSlot(path, [width, height], divId)</code>.
+            <strong>How to verify:</strong> AdSense loader dynamically computes width and height based on the container size and sends it as an array to <code>googletag.defineSlot</code>.
         </div>
     </div>
 
     <div class="content-block">
-        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-        <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+        <p>Mauris sed libero. Suspendisse facilisis nulla in lacinia laoreet, lorem velit accumsan velit, vel mattis libero nisl et sem. In tristique nunc nec orci. Vivamus sapien. Mauris diam quam, porttitor ut, tristique vitae, convallis nec, diam. Suspendisse potenti. Nam a sem vitae felis mollis iaculis.</p>
     </div>
 
     <!-- TEST 6 -->
     <div class="test-section">
-        <h2>6. Unsupported: AFP Ad with Custom Channels</h2>
+        <h2>6. Unsupported Fallback: AFP Ad</h2>
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-6851705954091379"
              data-ad-host="pub-9876543210987654"
              data-ad-slot="4777127026"
-             data-ad-channel="UnsupportedAFPChannel"
-             data-ad-format="auto"></ins>
+             data-ad-channel="UnsupportedAFPChannel"></ins>
         <div class="test-instructions">
-            <strong>How to verify:</strong> Because the <code>data-ad-host</code> attribute marks this as an AdSense For Platforms (AFP) ad, it is unsupported and will bypass GAM migration. <br><br>
-            Look for an AdSense request (<code>/pagead/ads</code>) instead of GAM. In its payload, ensure the variant channel is successfully appended: <code>channel=UnsupportedAFPChannel+[MIGRATION_VARIANT_CHANNEL]</code>.
+            <strong>How to verify:</strong> <code>data-ad-host</code> marks this as an AdSense For Platforms (AFP) ad, bypassing migration.<br><br>
+            Look for an AdSense request (<code>/pagead/ads</code>) instead of GAM. In the payload, the variant channel is successfully appended: <code>channel=UnsupportedAFPChannel+[MIGRATION_VARIANT_CHANNEL]</code>.
         </div>
     </div>
 
-    <div class="content-block">
-        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
-        <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <!-- TEST 7 (Rewarded) -->
+    <div class="test-section">
+        <h2>7. Unsupported Fallback: Rewarded Format</h2>
+        <div class="test-instructions">
+            <strong>How to verify:</strong> Because this is a rewarded format pushed via JS params, it should bypass migration.<br><br>
+            Verify that it results in a standard AdSense request with <code>channel=[MIGRATION_VARIANT_CHANNEL]</code>.
+        </div>
+        <!-- Official JavaScript-based rewarded ad snippet -->
+        <script>
+            function myRewardCallback() {
+                console.log("User finished watching the ad! Granting reward...");
+            }
+
+            var slotVars = {
+                google_ad_client: "ca-pub-6851705954091379",
+                google_ad_slot: 7020146987,
+                google_ad_format: "rewarded",
+                google_ad_loaded_callback: myRewardCallback 
+            };
+            
+            (adsbygoogle = window.adsbygoogle || []).push({params: slotVars});
+        </script>
     </div>
 
-    <!-- TEST 7 (Delayed injection for privacy & pubadsReady testing) -->
+    <!-- TEST 8 (Delayed injection for privacy) -->
     <div class="test-section">
-        <h2>7. Delayed / Lazy Loaded Ad Unit with Privacy Settings</h2>
+        <h2>8. Delayed / Lazy Loaded Ad Unit with Privacy Settings</h2>
         <p>This slot is injected after a 2-second timeout.</p>
-        <ins id="slot-7-container"></ins>
+        <ins id="slot-8-container"></ins>
         <div class="test-instructions">
             <strong>How to verify:</strong> Wait 2 seconds. A new GPT request (<code>/gampad/ads</code>) should fire. Check its Payload tab to confirm the privacy attributes correctly mapped to GPT equivalents:
             <ul>
@@ -151,48 +166,32 @@
             </ul>
         </div>
     </div>
-        
-    <div class="test-section">
-        <h2>8. Testing Ad Intents (Commercial Concepts)</h2>
-        <!-- Ad Intents scan paragraphs for commercial terms to convert into links, chips, or anchors -->
-        <p>
-            If you are looking to upgrade your mobile device, you might want to consider the <strong>iPhone 12 Mini</strong> or the newer <strong>Apple iPhone 14</strong>. We have a great selection if you want to <strong>Shop for high-end smartphones</strong>. Many people prefer these over other <strong>expensive iPhone models</strong> because of their camera quality.
-        </p>
-
-        <h2>9. Testing Interstitials (Vignettes)</h2>
-        <!-- Vignettes trigger when users click links to navigate away from the page -->
-        <p>Vignettes do not appear on page load. Click the links below to navigate away and trigger the interstitial ad:</p>
-        <ul>
-            <li><a href="https://example.com">Navigate to Example.com</a></li>
-            <li><a href="https://pubinventory.github.io/">Navigate to PubInventory Home</a></li>
-        </ul>
-    </div>
 
     <!-- Initialization Scripts -->
     <script>
-         // 1. Push all initial manual ad units to the queue
-         const insElements = document.querySelectorAll('.adsbygoogle');
-         insElements.forEach(() => {
-             (adsbygoogle = window.adsbygoogle || []).push({});
-         });
+        // 1. Push all initial manual ad units to the queue
+        const insElements = document.querySelectorAll('.adsbygoogle');
+        insElements.forEach(() => {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        });
 
-         // 2. Delayed injection to guarantee GPT is initialized BEFORE this slot is processed
-         setTimeout(() => {
-             // Apply global AdSense privacy setting
-             (adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;
-             
-             const container = document.getElementById('slot-7-container');
-             container.innerHTML = `
-                 <ins class="adsbygoogle"
-                      style="display:block; width: 300px; height: 250px;"
-                      data-ad-client="ca-pub-6851705954091379"
-                      data-ad-slot="7435079950"
-                      data-ad-format="auto"
-                      data-tag-for-age-treatment="1"
-                      data-restrict-data-processing="1"></ins>
-             `;
-             (adsbygoogle = window.adsbygoogle || []).push({});
-         }, 2000);
+        // 2. Delayed injection to guarantee GPT is initialized BEFORE this slot is processed
+        setTimeout(() => {
+            // Apply global AdSense privacy setting
+            (adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1;
+            
+            const container = document.getElementById('slot-8-container');
+            container.innerHTML = `
+                <ins class="adsbygoogle"
+                     style="display:block; width: 300px; height: 250px;"
+                     data-ad-client="ca-pub-6851705954091379"
+                     data-ad-slot="7435079950"
+                     data-ad-format="auto"
+                     data-tag-for-age-treatment="1"
+                     data-restrict-data-processing="1"></ins>
+            `;
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        }, 2000);
     </script>
 </body>
 </html>
