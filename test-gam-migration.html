@@ -131,15 +131,16 @@
     <!-- TEST 7 (Rewarded) -->
     <div class="test-section">
         <h2>7. Unsupported Fallback: Rewarded Format</h2>
-        <div class="test-instructions">
-            <strong>How to verify:</strong> Because this is a rewarded format pushed via JS params, it should safely bypass migration.<br><br>
-            Verify that it results in a standard AdSense request with <code>channel=[MIGRATION_VARIANT_CHANNEL]</code>. Click the button below when it appears to view the ad.
-        </div>
         
         <!-- A hidden button that we will display when the ad is ready -->
         <button id="rewarded-button" style="display:none; margin-top:15px; padding:10px; background:#007bff; color:white; border:none; cursor:pointer;">
             Watch Ad to get a Reward!
         </button>
+        
+        <div class="test-instructions">
+            <strong>How to verify:</strong> Because this is a rewarded format pushed via JS params, it should safely bypass migration.<br><br>
+            Verify that it results in a standard AdSense request with <code>channel=[MIGRATION_VARIANT_CHANNEL]</code>. Click the button below when it appears to view the ad.
+        </div>
 
         <!-- Official JavaScript-based rewarded ad snippet -->
         <script>
