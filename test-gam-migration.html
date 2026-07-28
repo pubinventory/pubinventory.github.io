@@ -119,7 +119,7 @@
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-6851705954091379"
-             data-ad-host="pub-9876543210987654"
+             data-ad-host="ca-host-pub-4586120926981392"
              data-ad-slot="4777127026"
              data-ad-channel="UnsupportedAFPChannel"></ins>
         <div class="test-instructions">
@@ -132,13 +132,32 @@
     <div class="test-section">
         <h2>7. Unsupported Fallback: Rewarded Format</h2>
         <div class="test-instructions">
-            <strong>How to verify:</strong> Because this is a rewarded format pushed via JS params, it should bypass migration.<br><br>
-            Verify that it results in a standard AdSense request with <code>channel=[MIGRATION_VARIANT_CHANNEL]</code>.
+            <strong>How to verify:</strong> Because this is a rewarded format pushed via JS params, it should safely bypass migration.<br><br>
+            Verify that it results in a standard AdSense request with <code>channel=[MIGRATION_VARIANT_CHANNEL]</code>. Click the button below when it appears to view the ad.
         </div>
+        
+        <!-- A hidden button that we will display when the ad is ready -->
+        <button id="rewarded-button" style="display:none; margin-top:15px; padding:10px; background:#007bff; color:white; border:none; cursor:pointer;">
+            Watch Ad to get a Reward!
+        </button>
+
         <!-- Official JavaScript-based rewarded ad snippet -->
         <script>
-            function myRewardCallback() {
-                console.log("User finished watching the ad! Granting reward...");
+            // The callback receives the ad object from the AdSense loader
+            function myRewardCallback(rewardedAd) {
+                if (rewardedAd == null) return;
+                
+                // Show the reward button now that the ad is successfully loaded
+                let button = document.getElementById("rewarded-button");
+                button.style.display = 'block';
+                
+                // Bind a click event to actually display the full-screen ad
+                button.addEventListener("click", (event) => {
+                    rewardedAd.show((closeStatus) => {
+                        // This fires after the user closes the ad
+                        console.log("Ad closed. Reward status: ", closeStatus);
+                    });
+                });
             }
 
             var slotVars = {
