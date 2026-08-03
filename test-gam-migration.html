@@ -180,14 +180,14 @@
 
 <!-- TOP LEADERBOARD (TEST 1) -->
 <section class="page-container pt-6">
-    <div class="adsense-placeholder ad-slot-leaderboard flex flex-col justify-between">
+    <div class="adsense-placeholder ad-slot-leaderboard flex flex-col justify-between border-blue-200">
         <!-- Label Badge -->
         <div class="px-3 py-1 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
             <span>Responsive Leaderboard Header (TEST 1)</span>
             <span>ChannelA+ChannelB (Expansion Disabled)</span>
         </div>
         
-        <div class="justify-center items-center">
+        <div class="justify-center items-center py-4">
             <!-- TEST 1: Combining Auto Format, '+' Channels, and Expansion Disabled -->
             <ins class="adsbygoogle adsense-block-default"
                  data-ad-client="ca-pub-6851705954091379"
@@ -199,6 +199,11 @@
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
+
+        <div class="p-3 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
+            <strong class="shrink-0 mt-0.5">How to verify:</strong> 
+            <span>Look in the network tab for the ad request. Check that the format is <code>auto</code>, channels are <code>ChannelA+ChannelB</code>, and the expansion is explicitly disabled via <code>data-full-width-responsive="false"</code>.</span>
+        </div>
     </div>
 </section>
 
@@ -209,14 +214,14 @@
         <!-- LEFT SIDEBAR (TEST 3) -->
         <aside class="hidden lg:block">
             <div class="sticky top-28 space-y-4">
-                <div class="adsense-placeholder ad-slot-skyscraper flex flex-col justify-between">
+                <div class="adsense-placeholder ad-slot-skyscraper flex flex-col justify-between border-blue-200">
                     <!-- Label Badge -->
                     <div class="px-3 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                         <span>Skyscraper (TEST 3)</span>
                         <span>Fluid Sizing</span>
                     </div>
 
-                    <div>
+                    <div class="py-4">
                         <!-- TEST 3: Supported Fluid Sizing -->
                         <ins class="adsbygoogle adsense-block-default"
                              data-ad-client="ca-pub-6851705954091379"
@@ -227,8 +232,8 @@
                         </script>
                     </div>
 
-                    <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
-                        Left Vertical Format
+                    <div class="p-3 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 leading-snug">
+                        <strong>How to verify:</strong> Confirm the ad correctly requests <code>data-ad-format="fluid"</code> matching dynamic skyscraper layouts.
                     </div>
                 </div>
                 
@@ -278,7 +283,7 @@
             </section>
 
             <!-- INLINE AD 1 (TEST 2) -->
-            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between border-blue-200">
                 <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>In-Article Slot (TEST 2)</span>
                     <span>% Inline Size & ',' Separated Channels</span>
@@ -294,8 +299,9 @@
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
-                <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
-                    Will dynamically match content layout width (50%)
+                <div class="p-4 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
+                    <strong class="shrink-0 mt-0.5">How to verify:</strong>
+                    <span>Check that the ad container dynamically respects the 50% inline width style constraint and properly fires requests attached to channels <code>ChannelC,ChannelD</code>.</span>
                 </div>
             </div>
 
@@ -319,7 +325,7 @@
             </section>
 
             <!-- INLINE AD 2 (TEST 4) -->
-            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between border-blue-200">
                 <!-- Label Badge -->
                 <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>In-Article Slot (TEST 4)</span>
@@ -336,8 +342,9 @@
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
-                <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
-                    Fluid native autorelaxed configuration
+                <div class="p-4 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
+                    <strong class="shrink-0 mt-0.5">How to verify:</strong>
+                    <span>Inspect network requests for the native <code>format=autorelaxed</code> parameter in the HTTP payload.</span>
                 </div>
             </div>
 
@@ -353,7 +360,7 @@
             </section>
             
             <!-- IN-ARTICLE AD 3 (TEST 5) - Newly added to fit all specs -->
-            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between mt-8">
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between mt-8 border-blue-200">
                 <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>Bottom Article Slot (TEST 5)</span>
                     <span>Manual No Width/Height</span>
@@ -368,6 +375,10 @@
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
+                <div class="p-4 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
+                    <strong class="shrink-0 mt-0.5">How to verify:</strong>
+                    <span>Ensure this ad serves manually with no strict width, height, or format data tags enforcing its size.</span>
+                </div>
             </div>
 
             <div style="height: 200px;"></div>
@@ -377,13 +388,13 @@
         <aside class="space-y-8">
             
             <!-- Right Sidebar Ad (TEST 6) -->
-            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between border-blue-200">
                 <!-- Label Badge -->
                 <div class="px-3 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>Premium Sidebar Block (TEST 6)</span>
                     <span>AFP Unsupported Fallback</span>
                 </div>
-                <div>
+                <div class="py-4">
                     <!-- TEST 6: Unsupported Fallback: AFP Ad -->
                     <ins class="adsbygoogle adsense-block-default"
                          data-ad-client="ca-pub-6851705954091379"
@@ -395,8 +406,8 @@
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
-                <div class="p-2 bg-slate-50 border-t border-slate-100 text-center text-[9px] text-slate-400">
-                    AFP Fallback Ad Area
+                <div class="p-3 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 leading-snug">
+                    <strong>How to verify:</strong> Verify the host parameter is exactly <code>ca-host-pub-4586120926981392</code> and the channel is <code>UnsupportedAFPChannel</code>.
                 </div>
             </div>
 
@@ -437,19 +448,17 @@
 </main>
 
 <!-- STICKY ANCHOR / FIXED FOOTER AD BANNER (TEST 8) -->
-<section class="fixed bottom-0 inset-x-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_20px_-4px_rgba(0,0,0,0.08)] py-2.5">
-    <div class="page-container flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="text-[9px] text-slate-400 font-bold uppercase tracking-wider shrink-0 md:text-left text-center w-full md:w-auto">
-            Advertisement (Footer / TEST 8 - Lazy Loading)
-        </div>
-        
-        <!-- Live Responsive AdSense tag inside Footer anchor wrapper -->
+<section class="fixed bottom-0 inset-x-0 z-50 bg-slate-50 border-t-2 border-blue-500 shadow-[0_-8px_20px_-4px_rgba(0,0,0,0.12)]">
+    <!-- Verification Banner -->
+    <div class="bg-blue-50 px-4 py-2 border-b border-blue-100 flex items-center justify-center text-[12px] text-blue-800">
+        <strong class="shrink-0 mr-2">How to verify (TEST 8):</strong> 
+        <span>Inspect network. The delayed request fires after 2s with <code>data-tag-for-age-treatment=1</code> & <code>data-restrict-data-processing=1</code>.</span>
+    </div>
+
+    <!-- Live Responsive AdSense tag inside Footer anchor wrapper -->
+    <div class="page-container py-2.5 flex justify-center">
         <div class="ad-slot-footer-wrapper">
             <ins id="slot-8-container"></ins>
-        </div>
-
-        <div class="hidden lg:flex items-center gap-1.5 text-[9px] text-slate-400 shrink-0">
-            <span>Delayed Layout Pipeline</span>
         </div>
     </div>
 </section>
