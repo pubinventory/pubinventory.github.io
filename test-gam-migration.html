@@ -202,7 +202,7 @@
 
         <div class="p-3 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
             <strong class="shrink-0 mt-0.5">How to verify:</strong> 
-            <span>Look in the network tab for the ad request. Check that the format is <code>auto</code>, channels are <code>ChannelA+ChannelB</code>, and the expansion is explicitly disabled via <code>data-full-width-responsive="false"</code>.</span>
+            <span> Verify that the URL parameter <code>aee=0</code> is present, which confirms ad expansion was disabled. If you are in the Control arm, check the AdSense request for the <code>MIGRATION_CONTROL_CHANNEL</code> tracking channel.</span>
         </div>
     </div>
 </section>
@@ -233,7 +233,7 @@
                     </div>
 
                     <div class="p-3 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 leading-snug">
-                        <strong>How to verify:</strong> Confirm the ad correctly requests <code>data-ad-format="fluid"</code> matching dynamic skyscraper layouts.
+                        <strong>How to verify:</strong> Verify that AdSense's <code>format=fluid</code> parameter is absent, as the conversion layer maps fluid sizes to GAM's unified auto sizing instead.
                     </div>
                 </div>
                 
@@ -301,7 +301,7 @@
                 </div>
                 <div class="p-4 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
                     <strong class="shrink-0 mt-0.5">How to verify:</strong>
-                    <span>Check that the ad container dynamically respects the 50% inline width style constraint and properly fires requests attached to channels <code>ChannelC,ChannelD</code>.</span>
+                    <span>Check that the 50% width is resolved to pixel values. Verify that requests route to GAM in the experiment. If in the control arm, verify AdSense fires the request with <code>ChannelC,ChannelD</code> plus the <code>MIGRATION_CONTROL_CHANNEL</code>.</span>
                 </div>
             </div>
 
@@ -344,7 +344,7 @@
                 </div>
                 <div class="p-4 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
                     <strong class="shrink-0 mt-0.5">How to verify:</strong>
-                    <span>Inspect network requests for the native <code>format=autorelaxed</code> parameter in the HTTP payload.</span>
+                    <span>Ensure the legacy <code>autorelaxed</code> format is mapped to the unified <code>'auto'</code> size in GPT.</span>
                 </div>
             </div>
 
@@ -377,7 +377,7 @@
                 </div>
                 <div class="p-4 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
                     <strong class="shrink-0 mt-0.5">How to verify:</strong>
-                    <span>Ensure this ad serves manually with no strict width, height, or format data tags enforcing its size.</span>
+                    <span>Since there is no format attribute, verify AdSense computes the width and height client-side and passes explicit pixel dimensions (e.g. <code>[width, height]</code>) to GPT rather than <code>'auto'</code>.</span>
                 </div>
             </div>
 
@@ -407,7 +407,7 @@
                     </script>
                 </div>
                 <div class="p-3 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 leading-snug">
-                    <strong>How to verify:</strong> Verify the host parameter is exactly <code>ca-host-pub-4586120926981392</code> and the channel is <code>UnsupportedAFPChannel</code>.
+                    <strong>How to verify:</strong> Verify this unsupported AFP slot bypasses GPT and serves via AdSense. If in the experiment branch, verify the AdSense request adds the <code>MIGRATION_VARIANT_CHANNEL</code>.
                 </div>
             </div>
 
