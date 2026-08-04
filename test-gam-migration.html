@@ -92,10 +92,10 @@
 
         .ad-slot-footer-wrapper {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: block;  /* Changed from flex to block to prevent collapsing bounds */
+            text-align: center;
             min-height: 50px;
+            padding-top: 10px;
         }
         @media (min-width: 768px) {
             .ad-slot-footer-wrapper {
@@ -187,7 +187,7 @@
             <span>ChannelA+ChannelB (Expansion Disabled)</span>
         </div>
         
-        <div class="justify-center items-center py-4">
+        <div class="py-4 text-center">
             <!-- TEST 1: Combining Auto Format, '+' Channels, and Expansion Disabled -->
             <ins class="adsbygoogle adsense-block-default"
                  data-ad-client="ca-pub-6851705954091379"
@@ -212,7 +212,7 @@
     <div class="layout-grid">
 
         <!-- LEFT SIDEBAR (TEST 3) -->
-        <aside class="hidden lg:block">
+        <aside class="block">
             <div class="sticky top-28 space-y-4">
                 <div class="adsense-placeholder ad-slot-skyscraper flex flex-col justify-between border-blue-200">
                     <!-- Label Badge -->
@@ -221,7 +221,7 @@
                         <span>Fluid Sizing</span>
                     </div>
 
-                    <div class="py-4">
+                    <div class="py-4 block">
                         <!-- TEST 3: Supported Fluid Sizing -->
                         <ins class="adsbygoogle adsense-block-default"
                              data-ad-client="ca-pub-6851705954091379"
@@ -288,12 +288,12 @@
                     <span>In-Article Slot (TEST 2)</span>
                     <span>% Inline Size & ',' Separated Channels</span>
                 </div>
-                <div class="p-4 flex justify-center items-center">
+                <div class="p-4 text-center">
                     <!-- TEST 2: Supported: % Inline Size & ',' Separated Channels -->
-                    <ins class="adsbygoogle"
+                    <ins class="adsbygoogle adsense-block-centered"
                          style="display:inline-block;width:50%;height:250px"
                          data-ad-client="ca-pub-6851705954091379"
-                         data-ad-slot="7542625238"
+                         data-ad-slot="7435079950"
                          data-ad-channel="ChannelC,ChannelD"></ins>
                     <script>
                          (adsbygoogle = window.adsbygoogle || []).push({});
@@ -331,8 +331,7 @@
                     <span>In-Article Slot (TEST 4)</span>
                     <span>Autorelaxed Sizing</span>
                 </div>
-                <!-- Live AdSense Native / Responsive Block -->
-                <div class="p-4 flex justify-center items-center">
+                <div class="p-4 block w-full">
                     <!-- TEST 4: Supported Autorelaxed Sizing -->
                     <ins class="adsbygoogle adsense-block-centered"
                          data-ad-client="ca-pub-6851705954091379"
@@ -344,7 +343,7 @@
                 </div>
                 <div class="p-4 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
                     <strong class="shrink-0 mt-0.5">How to verify:</strong>
-                    <span>Ensure the legacy <code>autorelaxed</code> format is mapped to the unified <code>'auto'</code> size in GPT.</span>
+                    <span>Inspect network requests for the native <code>format=autorelaxed</code> parameter in the HTTP payload.</span>
                 </div>
             </div>
 
@@ -359,16 +358,15 @@
                 </p>
             </section>
             
-            <!-- IN-ARTICLE AD 3 (TEST 5) - Newly added to fit all specs -->
+            <!-- IN-ARTICLE AD 3 (TEST 5) -->
             <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between mt-8 border-blue-200">
                 <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>Bottom Article Slot (TEST 5)</span>
                     <span>Manual No Width/Height</span>
                 </div>
-                <div class="p-4 flex justify-center items-center w-full">
+                <div class="p-4 block w-full">
                     <!-- TEST 5: Supported: Manual with No Width/Height/Format -->
-                    <ins class="adsbygoogle"
-                         style="display:block;"
+                    <ins class="adsbygoogle adsense-block-default"
                          data-ad-client="ca-pub-6851705954091379"
                          data-ad-slot="1441205607"></ins>
                     <script>
@@ -394,7 +392,7 @@
                     <span>Premium Sidebar Block (TEST 6)</span>
                     <span>AFP Unsupported Fallback</span>
                 </div>
-                <div class="py-4">
+                <div class="py-4 text-center">
                     <!-- TEST 6: Unsupported Fallback: AFP Ad -->
                     <ins class="adsbygoogle adsense-block-default"
                          data-ad-client="ca-pub-6851705954091379"
@@ -452,19 +450,39 @@
     <!-- Verification Banner -->
     <div class="bg-blue-50 px-4 py-2 border-b border-blue-100 flex items-center justify-center text-[12px] text-blue-800">
         <strong class="shrink-0 mr-2">How to verify (TEST 8):</strong> 
-        <span>Inspect network. The delayed request fires after 2s with <code>data-tag-for-age-treatment=1</code> & <code>data-restrict-data-processing=1</code>.</span>
+        <span>Inspect network. The delayed request fires after 2s with <code>data-tag-for-age-treatment=1</code>, <code>data-restrict-data-processing=1</code>, and fixed sz <code>[728, 90]</code>.</span>
     </div>
 
     <!-- Live Responsive AdSense tag inside Footer anchor wrapper -->
-    <div class="page-container py-2.5 flex justify-center">
+    <div class="page-container py-2.5 flex justify-center w-full block text-center">
+        <!-- Fixed: removed explicit flex from wrapper in CSS to prevent zero-width wrapping -->
         <div class="ad-slot-footer-wrapper">
             <ins id="slot-8-container"></ins>
         </div>
     </div>
 </section>
 
-<!-- Additional Test Logic (Test 8) script injected at EOF to respect render tree -->
+<!-- Additional Test Logic (Test 7 & 8) scripts injected at EOF to respect render tree -->
 <script>
+    // TEST 7: Rewarded Ad overlay triggered automatically 
+    function myRewardCallback(rewardedAd) {
+        if (rewardedAd == null) return;
+        
+        // Auto-show the rewarded interstitial immediately
+        rewardedAd.show((closeStatus) => {
+            console.log("Ad closed. Reward status: ", closeStatus);
+        });
+    }
+
+    var slotVars = {
+        google_ad_slot: 7020146987,
+        google_ad_format: "rewarded",
+        google_ad_loaded_callback: myRewardCallback 
+    };
+    
+    (adsbygoogle = window.adsbygoogle || []).push({params: slotVars});
+
+
     // TEST 8: Delayed / Lazy Loaded Ad Unit with Privacy Settings
     setTimeout(() => {
         // Apply global AdSense privacy setting
@@ -475,8 +493,8 @@
             container.innerHTML = `
                 <ins class="adsbygoogle adsense-anchor-sticky"
                      data-ad-client="ca-pub-6851705954091379"
-                     data-ad-slot="7435079950"
-                     data-ad-format="auto"
+                     data-ad-slot="7542625238"
+                     style="display:inline-block;width:728px;height:90px"
                      data-tag-for-age-treatment="1"
                      data-restrict-data-processing="1"></ins>
             `;
