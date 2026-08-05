@@ -92,10 +92,10 @@
 
         .ad-slot-footer-wrapper {
             width: 100%;
-            display: block;  /* Changed from flex to block to prevent collapsing bounds */
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 50px;
-            padding-top: 10px;
         }
         @media (min-width: 768px) {
             .ad-slot-footer-wrapper {
@@ -180,14 +180,14 @@
 
 <!-- TOP LEADERBOARD (TEST 1) -->
 <section class="page-container pt-6">
-    <div class="adsense-placeholder ad-slot-leaderboard flex flex-col justify-between border-blue-200">
+    <div class="adsense-placeholder ad-slot-leaderboard flex flex-col justify-between">
         <!-- Label Badge -->
         <div class="px-3 py-1 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
             <span>Responsive Leaderboard Header (TEST 1)</span>
             <span>ChannelA+ChannelB (Expansion Disabled)</span>
         </div>
         
-        <div class="py-4 text-center">
+        <div class="justify-center items-center">
             <!-- TEST 1: Combining Auto Format, '+' Channels, and Expansion Disabled -->
             <ins class="adsbygoogle adsense-block-default"
                  data-ad-client="ca-pub-6851705954091379"
@@ -214,14 +214,14 @@
         <!-- LEFT SIDEBAR (TEST 3) -->
         <aside class="block">
             <div class="sticky top-28 space-y-4">
-                <div class="adsense-placeholder ad-slot-skyscraper flex flex-col justify-between border-blue-200">
+                <div class="adsense-placeholder ad-slot-skyscraper flex flex-col justify-between">
                     <!-- Label Badge -->
                     <div class="px-3 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                         <span>Skyscraper (TEST 3)</span>
                         <span>Fluid Sizing</span>
                     </div>
 
-                    <div class="py-4 block">
+                    <div>
                         <!-- TEST 3: Supported Fluid Sizing -->
                         <ins class="adsbygoogle adsense-block-default"
                              data-ad-client="ca-pub-6851705954091379"
@@ -239,7 +239,7 @@
                 
                 <div class="p-4 bg-slate-100 border border-slate-200 rounded-xl">
                     <h5 class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                        <svg class="icon-sm text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg class="icon-sm text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         Sidebar Strategy
                     </h5>
                     <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">
@@ -283,12 +283,12 @@
             </section>
 
             <!-- INLINE AD 1 (TEST 2) -->
-            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between border-blue-200">
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
                 <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>In-Article Slot (TEST 2)</span>
                     <span>% Inline Size & ',' Separated Channels</span>
                 </div>
-                <div class="p-4 text-center">
+                <div class="p-4 justify-center items-center">
                     <!-- TEST 2: Supported: % Inline Size & ',' Separated Channels -->
                     <ins class="adsbygoogle adsense-block-centered"
                          style="display:inline-block;width:50%;height:250px"
@@ -325,13 +325,13 @@
             </section>
 
             <!-- INLINE AD 2 (TEST 4) -->
-            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between border-blue-200">
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
                 <!-- Label Badge -->
                 <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>In-Article Slot (TEST 4)</span>
                     <span>Autorelaxed Sizing</span>
                 </div>
-                <div class="p-4 block w-full">
+                <div class="p-4 justify-center items-center">
                     <!-- TEST 4: Supported Autorelaxed Sizing -->
                     <ins class="adsbygoogle adsense-block-centered"
                          data-ad-client="ca-pub-6851705954091379"
@@ -359,12 +359,12 @@
             </section>
             
             <!-- IN-ARTICLE AD 3 (TEST 5) -->
-            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between mt-8 border-blue-200">
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
                 <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>Bottom Article Slot (TEST 5)</span>
                     <span>Manual No Width/Height</span>
                 </div>
-                <div class="p-4 block w-full">
+                <div class="p-4 justify-center items-center">
                     <!-- TEST 5: Supported: Manual with No Width/Height/Format -->
                     <ins class="adsbygoogle adsense-block-default"
                          data-ad-client="ca-pub-6851705954091379"
@@ -386,13 +386,13 @@
         <aside class="space-y-8">
             
             <!-- Right Sidebar Ad (TEST 6) -->
-            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between border-blue-200">
+            <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
                 <!-- Label Badge -->
                 <div class="px-3 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
                     <span>Premium Sidebar Block (TEST 6)</span>
                     <span>AFP Unsupported Fallback</span>
                 </div>
-                <div class="py-4 text-center">
+                <div>
                     <!-- TEST 6: Unsupported Fallback: AFP Ad -->
                     <ins class="adsbygoogle adsense-block-default"
                          data-ad-client="ca-pub-6851705954091379"
@@ -436,9 +436,22 @@
                 <div class="space-y-3 text-xs">
                     <div>
                         <span class="font-bold text-slate-800">CPM (Cost Per Mille)</span>
-                        <p class="text-slate-500 mt-0.5">The price tag of one thousand advertisement impressions.</p>
+                        <p class="text-slate-500 mt-0.5">The price tag of one thousand advertisement impressions on a website page.</p>
+                    </div>
+                    <div>
+                        <span class="font-bold text-slate-800">CTR (Click-Through Rate)</span>
+                        <p class="text-slate-500 mt-0.5">The percentage of readers who click on an impression to navigate further.</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- Rewarded Ad Trigger Widget (TEST 7) -->
+            <div class="bg-gradient-to-br from-indigo-50 to-blue-50 border border-blue-100 p-5 rounded-2xl shadow-sm text-center">
+                <h4 class="font-bold text-sm text-blue-900 mb-2">Unlock Premium Content (TEST 7)</h4>
+                <p class="text-xs text-blue-700 mb-4">Support our journalism by watching a short sponsored message.</p>
+                <button id="trigger-rewarded-ad" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded-lg shadow transition-colors w-full">
+                    Watch Ad to Unlock
+                </button>
             </div>
 
         </aside>
@@ -446,32 +459,41 @@
 </main>
 
 <!-- STICKY ANCHOR / FIXED FOOTER AD BANNER (TEST 8) -->
-<section class="fixed bottom-0 inset-x-0 z-50 bg-slate-50 border-t-2 border-blue-500 shadow-[0_-8px_20px_-4px_rgba(0,0,0,0.12)]">
+<section class="fixed bottom-0 inset-x-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_20px_-4px_rgba(0,0,0,0.08)] py-2.5">
     <!-- Verification Banner -->
-    <div class="bg-blue-50 px-4 py-2 border-b border-blue-100 flex items-center justify-center text-[12px] text-blue-800">
+    <div class="bg-blue-50 px-4 py-2 border-b border-blue-100 flex items-center justify-center text-[12px] text-blue-800 mb-2">
         <strong class="shrink-0 mr-2">How to verify (TEST 8):</strong> 
         <span>Inspect network. The delayed request fires after 2s with <code>data-tag-for-age-treatment=1</code>, <code>data-restrict-data-processing=1</code>, and fixed sz <code>[728, 90]</code>.</span>
     </div>
 
-    <!-- Live Responsive AdSense tag inside Footer anchor wrapper -->
-    <div class="page-container py-2.5 flex justify-center w-full block text-center">
-        <!-- Fixed: removed explicit flex from wrapper in CSS to prevent zero-width wrapping -->
+    <div class="page-container flex flex-col md:flex-row items-center justify-between gap-4">
+        <!-- Ad Label Badge -->
+        <div class="text-[9px] text-slate-400 font-bold uppercase tracking-wider shrink-0 md:text-left text-center w-full md:w-auto">
+            Advertisement (Sticky Anchor / Responsive Footer Banner)
+        </div>
+
+        <!-- Live Responsive AdSense tag inside Footer anchor wrapper -->
         <div class="ad-slot-footer-wrapper">
             <ins id="slot-8-container"></ins>
+        </div>
+
+        <!-- Support Info Tip -->
+        <div class="hidden lg:flex items-center gap-1.5 text-[9px] text-slate-400 shrink-0">
+            <span>Slot: Footer_Anchor_Sticky</span>
         </div>
     </div>
 </section>
 
 <!-- Additional Test Logic (Test 7 & 8) scripts injected at EOF to respect render tree -->
 <script>
-    // TEST 7: Rewarded Ad overlay triggered automatically 
+    // TEST 7: Rewarded Ad overlay triggered by button
+    let rewardedAdInstance = null;
+
     function myRewardCallback(rewardedAd) {
         if (rewardedAd == null) return;
         
-        // Auto-show the rewarded interstitial immediately
-        rewardedAd.show((closeStatus) => {
-            console.log("Ad closed. Reward status: ", closeStatus);
-        });
+        // Store the ad instance instead of showing it immediately
+        rewardedAdInstance = rewardedAd;
     }
 
     var slotVars = {
@@ -481,6 +503,23 @@
     };
     
     (adsbygoogle = window.adsbygoogle || []).push({params: slotVars});
+
+    // Attach click listener to our custom trigger button
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('trigger-rewarded-ad');
+        if (btn) {
+            btn.addEventListener('click', () => {
+                if (rewardedAdInstance) {
+                    rewardedAdInstance.show((closeStatus) => {
+                        console.log("Ad closed. Reward status: ", closeStatus);
+                    });
+                } else {
+                    console.log("Rewarded ad is not loaded yet.");
+                    alert("Rewarded ad is still loading, please try again in a moment.");
+                }
+            });
+        }
+    });
 
 
     // TEST 8: Delayed / Lazy Loaded Ad Unit with Privacy Settings
