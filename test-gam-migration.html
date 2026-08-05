@@ -211,35 +211,34 @@
 <main class="page-container py-8">
     <div class="layout-grid">
 
-        <!-- LEFT SIDEBAR (TEST 3) -->
+        <!-- LEFT SIDEBAR -->
         <aside class="block">
             <div class="sticky top-28 space-y-4">
                 <div class="adsense-placeholder ad-slot-skyscraper flex flex-col justify-between">
                     <!-- Label Badge -->
                     <div class="px-3 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
-                        <span>Skyscraper (TEST 3)</span>
-                        <span>Fluid Sizing</span>
+                        <span>Skyscraper (TEST 5)</span>
+                        <span>Manual No Width/Height</span>
                     </div>
 
                     <div>
-                        <!-- TEST 3: Supported Fluid Sizing -->
+                        <!-- TEST 5: Supported: Manual with No Width/Height/Format -->
                         <ins class="adsbygoogle adsense-block-default"
                              data-ad-client="ca-pub-6851705954091379"
-                             data-ad-slot="6693532286"
-                             data-ad-format="fluid"></ins>
+                             data-ad-slot="1441205607"></ins>
                         <script>
                              (adsbygoogle = window.adsbygoogle || []).push({});
                         </script>
                     </div>
 
                     <div class="p-3 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 leading-snug">
-                        <strong>How to verify:</strong> Verify that AdSense's <code>format=fluid</code> parameter is absent, as the conversion layer maps fluid sizes to GAM's unified auto sizing instead.
+                        <strong>How to verify:</strong> Since there is no format attribute, verify AdSense computes the width and height client-side and passes explicit pixel dimensions (e.g. <code>[width, height]</code>) to GPT rather than <code>'auto'</code>.
                     </div>
                 </div>
                 
                 <div class="p-4 bg-slate-100 border border-slate-200 rounded-xl">
                     <h5 class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                        <svg class="icon-sm text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg class="icon-sm text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         Sidebar Strategy
                     </h5>
                     <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">
@@ -358,24 +357,26 @@
                 </p>
             </section>
             
-            <!-- IN-ARTICLE AD 3 (TEST 5) -->
+            <!-- IN-ARTICLE AD 3 (TEST 3) -->
             <div class="adsense-placeholder ad-slot-inline flex flex-col justify-between">
                 <div class="px-4 py-1.5 bg-slate-100 border-b border-slate-200 text-[9px] text-slate-400 font-bold uppercase tracking-wider flex justify-between items-center">
-                    <span>Bottom Article Slot (TEST 5)</span>
-                    <span>Manual No Width/Height</span>
+                    <span>Bottom Article Slot (TEST 3)</span>
+                    <span>Fluid Sizing</span>
                 </div>
                 <div class="p-4 justify-center items-center">
-                    <!-- TEST 5: Supported: Manual with No Width/Height/Format -->
+                    <!-- TEST 3: Supported Fluid Sizing -->
                     <ins class="adsbygoogle adsense-block-default"
                          data-ad-client="ca-pub-6851705954091379"
-                         data-ad-slot="1441205607"></ins>
+                         data-ad-slot="6693532286"
+                         data-ad-format="fluid"
+                         data-ad-layout-key="-6t+ed+2i-1n-4w"></ins>
                     <script>
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
                 <div class="p-4 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
                     <strong class="shrink-0 mt-0.5">How to verify:</strong>
-                    <span>Since there is no format attribute, verify AdSense computes the width and height client-side and passes explicit pixel dimensions (e.g. <code>[width, height]</code>) to GPT rather than <code>'auto'</code>.</span>
+                    <span>Verify that AdSense's <code>format=fluid</code> parameter is absent, as the conversion layer maps fluid sizes to GAM's unified auto sizing instead.</span>
                 </div>
             </div>
 
