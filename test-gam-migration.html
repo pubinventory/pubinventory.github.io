@@ -199,11 +199,6 @@
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
-
-        <div class="p-3 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
-            <strong class="shrink-0 mt-0.5">How to verify:</strong> 
-            <span> Verify that the URL parameter <code>aee=0</code> is present, which confirms ad expansion was disabled. If you are in the Control arm, check the AdSense request for the <code>MIGRATION_CONTROL_CHANNEL</code> tracking channel.</span>
-        </div>
     </div>
 </section>
 
@@ -211,7 +206,7 @@
 <main class="page-container py-8">
     <div class="layout-grid">
 
-        <!-- LEFT SIDEBAR -->
+        <!-- LEFT SIDEBAR (TEST 3) -->
         <aside class="block">
             <div class="sticky top-28 space-y-4">
                 <div class="adsense-placeholder ad-slot-skyscraper flex flex-col justify-between">
@@ -229,10 +224,6 @@
                         <script>
                              (adsbygoogle = window.adsbygoogle || []).push({});
                         </script>
-                    </div>
-
-                    <div class="p-3 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 leading-snug">
-                        <strong>How to verify:</strong> Since there is no format attribute, verify AdSense computes the width and height client-side and passes explicit pixel dimensions (e.g. <code>[width, height]</code>) to GPT rather than <code>'auto'</code>.
                     </div>
                 </div>
                 
@@ -298,10 +289,6 @@
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
-                <div class="p-4 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
-                    <strong class="shrink-0 mt-0.5">How to verify:</strong>
-                    <span>Check that the 50% width is resolved to pixel values. Verify that requests route to GAM in the experiment. If in the control arm, verify AdSense fires the request with <code>ChannelC,ChannelD</code> plus the <code>MIGRATION_CONTROL_CHANNEL</code>.</span>
-                </div>
             </div>
 
             <!-- Section 2 -->
@@ -340,10 +327,6 @@
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
-                <div class="p-4 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
-                    <strong class="shrink-0 mt-0.5">How to verify:</strong>
-                    <span>Inspect network requests for the native <code>format=autorelaxed</code> parameter in the HTTP payload.</span>
-                </div>
             </div>
 
             <!-- Section 3 -->
@@ -374,10 +357,6 @@
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
-                <div class="p-4 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 flex gap-2 items-start">
-                    <strong class="shrink-0 mt-0.5">How to verify:</strong>
-                    <span>Verify that AdSense's <code>format=fluid</code> parameter is absent, as the conversion layer maps fluid sizes to GAM's unified auto sizing instead.</span>
-                </div>
             </div>
 
             <div style="height: 200px;"></div>
@@ -404,9 +383,6 @@
                     <script>
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
-                </div>
-                <div class="p-3 bg-blue-50 border-t border-blue-100 text-[12px] text-blue-800 leading-snug">
-                    <strong>How to verify:</strong> Verify this unsupported AFP slot bypasses GPT and serves via AdSense. If in the experiment branch, verify the AdSense request adds the <code>MIGRATION_VARIANT_CHANNEL</code>.
                 </div>
             </div>
 
@@ -461,11 +437,6 @@
 
 <!-- STICKY ANCHOR / FIXED FOOTER AD BANNER (TEST 8) -->
 <section class="fixed bottom-0 inset-x-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_20px_-4px_rgba(0,0,0,0.08)] py-2.5">
-    <!-- Verification Banner -->
-    <div class="bg-blue-50 px-4 py-2 border-b border-blue-100 flex items-center justify-center text-[12px] text-blue-800 mb-2">
-        <strong class="shrink-0 mr-2">How to verify (TEST 8):</strong> 
-        <span>Inspect network. The delayed request fires after 2s with <code>data-tag-for-age-treatment=1</code>, <code>data-restrict-data-processing=1</code>, and fixed sz <code>[728, 90]</code>.</span>
-    </div>
 
     <div class="page-container flex flex-col md:flex-row items-center justify-between gap-4">
         <!-- Ad Label Badge -->
@@ -540,7 +511,7 @@
             `;
             (adsbygoogle = window.adsbygoogle || []).push({});
         }
-    }, 2000);
+    }, 500);
 </script>
 
 </body>
