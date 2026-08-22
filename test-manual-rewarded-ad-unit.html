@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Rewarded Ad Canvas Test</title>
+    <!-- Load Tailwind CSS for quick styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load the AdSense library -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356814494732193" crossorigin="anonymous"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+        
+        /* The button is completely hidden initially */
+        #rewardButton { 
+            display: none; 
+        }
+
+        #gameCanvas {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            touch-action: none; /* Prevent scrolling when interacting with canvas on touch devices */
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+
+    <div class="max-w-2xl w-full text-center space-y-6">
+        <h1 class="text-3xl font-bold text-gray-800">Canvas Mini-Game & Ad Test</h1>
+        
+        <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center px-8">
+            <div class="text-xl font-semibold text-gray-700">Score: <span id="scoreDisplay" class="text-blue-600">0</span></div>
+            <div class="text-sm text-gray-500">Click the green circles!</div>
+        </div>
+
+        <div class="relative w-full aspect-[4/3] max-h-[600px] flex justify-center">
+             <canvas id="gameCanvas" width="800" height="600" class="w-full h-full object-contain"></canvas>
+             
+             <!-- Overlay for message box -->
+             <div id="messageOverlay" class="absolute inset-0 bg-black bg-opacity-50 hidden flex-col items-center justify-center rounded-lg backdrop-blur-sm">
+                 <div class="bg-white p-6 rounded-xl shadow-xl text-center max-w-sm w-full mx-4">
+                     <h2 id="messageTitle" class="text-2xl font-bold mb-4 text-gray-800">Alert</h2>
+                     <p id="messageText" class="text-gray-600 mb-6">Message goes here.</p>
+                     <button onclick="hideMessage()" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors w-full">Close</button>
+                 </div>
+             </div>
+        </div>
+
+        <!-- The trigger button (hidden by default) -->
+        <button id="rewardButton" onclick="showMyRewardedAd()" class="mx-auto bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-105 active:scale-95 animate-pulse">
+            🎁 Watch Ad for +50 Bonus Points!
+        </button>
+
+        <p id="adStatus" class="text-sm text-gray-500 italic">Waiting for rewarded ad to load...</p>
+    </div>
+
+    <script>
+        // --- Canvas Game Logic ---
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        let score = 0;
+        let targets = [];
+        let animationId;
+
+        // Custom Alert System
+        function showMessage(title, text) {
+            document.getElementById('messageTitle').innerText = title;
+            document.getElementById('messageText').innerText = text;
+            document.getElementById('messageOverlay').classList.remove('hidden');
+            document.getElementById('messageOverlay').classList.add('flex');
+        }
+
+        function hideMessage() {
+            document.getElementById('messageOverlay').classList.add('hidden');
+            document.getElementById('messageOverlay').classList.remove('flex');
+        }
+
+        function updateScore(points) {
+            score += points;
+            document.getElementById('scoreDisplay').innerText = score;
+        }
+
+        class Target {
+            constructor() {
+                this.radius = 20 + Math.random() * 20;
+                this.x = Math.random() * (canvas.width - this.radius * 2) + this.radius;
+                this.y = -this.radius; // Start above canvas
+                this.speed = 1 + Math.random() * 2;
+                this.color = `hsl(${Math.random() * 60 + 90}, 70%, 50%)`; // Greenish hues
+                this.active = true;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                ctx.closePath();
+            }
+
+            update() {
+                this.y += this.speed;
+                if (this.y > canvas.height + this.radius) {
+                    this.active = false;
+                }
+            }
+        }
+
+        function spawnTarget() {
+            if (Math.random() < 0.02) { // 2% chance per frame
+                targets.push(new Target());
+            }
+        }
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            spawnTarget();
+
+            targets = targets.filter(target => target.active);
+            targets.forEach(target => {
+                target.update();
+                target.draw();
+            });
+
+            animationId = requestAnimationFrame(gameLoop);
+        }
+
+        // Handle clicks on the canvas
+        canvas.addEventListener('mousedown', function(event) {
+            handleInteraction(event);
+        });
+        
+        // Handle touch on the canvas
+        canvas.addEventListener('touchstart', function(event) {
+             event.preventDefault(); // Prevent scrolling
+             handleInteraction(event.touches[0]);
+        }, {passive: false});
+
+        function handleInteraction(interactionEvent) {
+            const rect = canvas.getBoundingClientRect();
+            // Calculate scale in case CSS resizes the canvas
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+
+            const x = (interactionEvent.clientX - rect.left) * scaleX;
+            const y = (interactionEvent.clientY - rect.top) * scaleY;
+
+            targets.forEach(target => {
+                const dist = Math.hypot(x - target.x, y - target.y);
+                if (dist < target.radius) {
+                    target.active = false;
+                    updateScore(10);
+                }
+            });
+        }
+
+        // Start the game loop when page loads
+        window.onload = function() {
+            gameLoop();
+        };
+
+        // --- AdSense Rewarded Ad Logic ---
+        let loadedRewardedAd = null;
+        const statusText = document.getElementById('adStatus');
+
+        // Define the callback function that AdSense will call
+        function onRewardedAdLoaded(rewardedAd) {
+            // Handle the case where the ad fails to load
+            if (rewardedAd == null) {
+                console.log("No rewarded ad loaded");
+                statusText.innerText = "Rewarded ad failed to load or is unavailable.";
+                statusText.classList.replace('text-gray-500', 'text-red-500');
+                // We keep the button hidden if no ad loaded
+                return;
+            }
+            
+            console.log("Rewarded ad successfully loaded!");
+            statusText.innerText = "Ad loaded! Click the button to earn a bonus.";
+            statusText.classList.replace('text-gray-500', 'text-green-600');
+            
+            // Save the ad object globally so the button click can use it
+            loadedRewardedAd = rewardedAd;
+            
+            // Make the button visible for the user now that the ad is ready
+            document.getElementById("rewardButton").style.display = "block";
+        }
+
+        // Function to call when the user clicks the button
+        function showMyRewardedAd() {
+            if (loadedRewardedAd) {
+                // Call the show() function to display the ad
+                loadedRewardedAd.show(result => {
+                    const closeStatus = result.status;
+                    const rewardPayload = result.reward;
+                    
+                    if (closeStatus === 'viewed') {
+                        // Grant reward to the user here
+                        showMessage("Reward Granted!", "Ad viewed completely! You earned 50 Bonus Points.");
+                        updateScore(50);
+                        console.log("Reward payload:", rewardPayload);
+                        
+                        // Hide button after granting reward (optional: you could reload a new ad here)
+                        document.getElementById("rewardButton").style.display = "none";
+                        statusText.innerText = "Reward claimed!";
+                    } else {
+                        showMessage("Ad Dismissed", "Ad was dismissed or closed without completing. No reward granted.");
+                    }
+                });
+            }
+        }
+
+        // Push the configuration to AdSense
+        try {
+            const slotVars = {
+                google_ad_loaded_callback: onRewardedAdLoaded,
+                google_ad_slot: 9884065150,
+                google_ad_format: "rewarded",
+                adtest: "on" // Ensures this is treated as a test
+            };
+            
+            window.adsbygoogle = window.adsbygoogle || [];
+            window.adsbygoogle.push({params: slotVars});
+            console.log("AdSense configuration pushed.");
+        } catch (e) {
+            console.error("Error pushing AdSense config:", e);
+            statusText.innerText = "Error initializing Ad test.";
+            statusText.classList.replace('text-gray-500', 'text-red-500');
+        }
+    </script>
+</body>
+</html>
